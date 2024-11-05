@@ -1,5 +1,6 @@
 import React from "react";
 import CartItem from "../components/CartItem";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const cartItems = [
@@ -63,7 +64,7 @@ const Cart = () => {
           </div>
           <div className="mt-4 flex justify-end">
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-              PROCEED TO CHECKOUT
+              <Link to= "/Payment">PROCEED TO CHECKOUT</Link>
             </button>
           </div>
         </div>

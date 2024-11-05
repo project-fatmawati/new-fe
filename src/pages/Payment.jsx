@@ -1,5 +1,5 @@
-import React from "react";
-// import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import bcaLogo from "../assets/bcaLogo.png";
 import briLogo from "../assets/briLogo.png";
 import bniLogo from "../assets/bniLogo.png";
@@ -8,15 +8,28 @@ import danaLogo from "../assets/danaLogo.png";
 import shopeepay from "../assets/shopeepay.png";
 import visaLogo from "../assets/visaLogo.png";
 import masterCard from "../assets/masterCard.png";
+import PopupPayment from "../components/PopupPayment";
 
-function BillingForm() {
+function Payment() {
   // const [paymentMethod, setPaymentMethod] = useState('');
+  const [showModal, setShowModal] = useState(false);
+
+  const handlePlaceOrder = () => {
+    setTimeout(() => {
+      setShowModal(true);
+    }, 100); 
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="container mx-auto px-4">
       <h2 className="text-2xl font-bold mb-4">Billing Details</h2>
       <form className="space-y-4 pb-3">
         <div>
-          <label htmlFor="username" className="block text-xl ">
+          <label className="block text-xl ">
             Username
           </label>
           <input
@@ -26,7 +39,7 @@ function BillingForm() {
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-xl ">
+          <label className="block text-xl ">
             Email
           </label>
           <input
@@ -36,7 +49,7 @@ function BillingForm() {
           />
         </div>
         <div>
-          <label htmlFor="phone" className="block text-xl ">
+          <label className="block text-xl ">
             Handphone
           </label>
           <input
@@ -46,7 +59,7 @@ function BillingForm() {
           />
         </div>
         <div>
-          <label htmlFor="address" className="block text-xl ">
+          <label className="block text-xl ">
             Shipping Address
           </label>
           <textarea
@@ -56,41 +69,41 @@ function BillingForm() {
           ></textarea>
         </div>
       </form>
-      <div>
         <br />
 
-        <div className="border p-5 rounded">
+        <div className="mt-8">
+        <div className="border p-5 rounded shadow-md">
           <h3 className="text-2xl font-bold mb-2 p-3">Metode Pembayaran</h3>
           <div className="space-y-4">
+            {/* Payment method options */}
             <div className="flex justify-between items-center border p-2">
-              <div>
+              <div className="flex items-center">
                 <input
                   type="radio"
                   name="paymentMethod"
                   value="bankTransfer"
-                  // checked={paymentMethod === 'disneyGiftCard'}
-                  // onChange={(e) => setPaymentMethod(e.target.value)}
+                  id="bankTransfer"
                 />
-                <label htmlFor="bankTransfer" className="ml-2 text-xl">
-                  Direct Bank Transfer
+                <label className="ml-2 text-lg">
+                  Bank Transfer
                 </label>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-5 sm:items-center ">
                 <img
-                  className="h-[20px] w-[60px] sm:w-[40px] sm:h-[16px]"
+                  className="h-[20px] w-[40px] "
                   src={bcaLogo}
                 />
                 <img
-                  className="h-[20px] w-[60px] sm:w-[40px] sm:h-[16px]"
+                  className="h-[20px] w-[60px] "
                   src={briLogo}
                 />
                 <img
-                  className="h-[20px] w-[60px] sm:w-[40px] sm:h-[16px]"
-                  src={mandiriLogo}
+                  className="h-[20px] w-[40px] "
+                  src={bniLogo}
                 />
                 <img
-                  className="h-[20px] w-[50px] sm:w-[35px] sm:h-[14px]"
-                  src={bniLogo}
+                  className="h-[20px] w-[50px]"
+                  src={mandiriLogo}
                 />
               </div>
             </div>
@@ -103,13 +116,13 @@ function BillingForm() {
                   // checked={paymentMethod === 'disneyGiftCard'}
                   // onChange={(e) => setPaymentMethod(e.target.value)}
                 />
-                <label htmlFor="bankTransfer" className="ml-2 text-xl">
+                <label className="ml-2 text-lg">
                   Credit Card
                 </label>
               </div>
-              <div className="flex gap-2">
-                <img className="h-[20px] w-[60px]" src={visaLogo} />
-                <img className="h-[25px] w-[65px]" src={masterCard} />
+              <div className="flex gap-2 pr-5">
+                <img className="h-[20px] w-[35px]" src={visaLogo} />
+                <img className="h-[25px] w-[45px]" src={masterCard} />
               </div>
             </div>
             <div className="flex justify-between items-center border p-2">
@@ -121,13 +134,13 @@ function BillingForm() {
                   // checked={paymentMethod === 'disneyGiftCard'}
                   // onChange={(e) => setPaymentMethod(e.target.value)}
                 />
-                <label htmlFor="bankTransfer" className="ml-2 text-xl">
+                <label className="ml-2 text-lg">
                   E-Wallet
                 </label>
               </div>
-              <div className="flex gap-2">
-                <img className="h-[25px] w-[60px]" src={shopeepay} />
-                <img className="h-[25px] w-[60px]" src={danaLogo} />
+              <div className="flex gap-2 pr-5">
+                <img className="h-[25px] w-[40px]" src={shopeepay} />
+                <img className="h-[25px] w-[40px]" src={danaLogo} />
               </div>
             </div>
             <div>
@@ -144,23 +157,23 @@ function BillingForm() {
                   </label>
                 </div>
 
-                <button className="w-full text-xl sm:w-auto bg-black text-white font-bold py-2 px-4 rounded-full hover:bg-gray-800">
-                  PLACE ORDER
-                </button>
+                <button  className="w-full text-xl sm:w-auto bg-black text-white font-bold py-3 px-4 rounded-full hover:bg-gray-800" 
+                onClick={handlePlaceOrder}>Place Order</button>
+                <PopupPayment showModal={showModal} handleCloseModal={handleCloseModal} />
 
-                <a
-                  href="#"
+                <Link to="/Cart"
                   className="text-xl text-gray-500 hover:underline text-center"
                 >
                   « Back to Cart
-                </a>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      </div>
+
   );
 }
 
-export default BillingForm;
+export default Payment;
