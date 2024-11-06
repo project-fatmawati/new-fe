@@ -90,7 +90,7 @@ const RecentProduct = ({ handleOrderPopup }) => {
                   className=" block mx-auto bg-black hover:scale-105 duration-300 text-white py-1 px-4 rounded-full mt-4 group-hover:bg-white group-hover:text-black"
                   onClick={handleOrderPopup}
                 >
-                  Order Now
+                  Barter Now
                 </button>
               </div>
             ))}
