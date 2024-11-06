@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './LoginPage.css'; // Pastikan file CSS terletak di folder yang benar
 import Logo from '../assets/Logo-nav.png';
 import ClothesIcon from '../assets/clothes-icon.png'; // Pastikan path ini benar
 

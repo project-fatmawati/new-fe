@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './LoginPage.css';
+import styles from './LoginPage.module.css'
 import Logo from '../assets/Logo-nav.png';
 import ClothesIcon from '../assets/clothes-icon.png';
 
@@ -23,7 +23,7 @@ function LoginPage({ handleLogin }) {
     return (
         <div>
             <header>
-                <div className="header-container">
+                <div className="{styles.header-container}">
                     <div className="logo">
                         <Link to="/">
                             <img src={Logo} alt="Logo BarterStyle" />
@@ -31,9 +31,9 @@ function LoginPage({ handleLogin }) {
                     </div>
                 </div>
             </header>
-            <div className="form-container">
-                <div className="form-content">
-                    <div className="form-logo">
+            <div className="{styles.form-container}">
+                <div className="{styles.form-content}">
+                    <div className="{styles.form-logo}">
                         <img src={ClothesIcon} alt="Logo BarterStyle" />
                     </div>
                     <h2>Masuk ke Akun Anda</h2>
@@ -44,7 +44,7 @@ function LoginPage({ handleLogin }) {
                         <label htmlFor="password">Password *</label>
                         <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
 
-                        <button type="submit" className="login-btn">Login</button>
+                        <button type="submit" className="{styles.login-btn}">Login</button>
                     </form>
                     <p>Belum punya akun? <Link to="/register">Daftar Sekarang</Link></p>
                 </div>

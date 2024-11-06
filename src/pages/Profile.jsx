@@ -1,12 +1,13 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
 import UserDashboard from '../components/Dashboard';
+import styles from './profile.module.css'
 
 const Profile = () => {
     return (
-        <div className="profile-container">
+        <div className="{styles.profile-container}">
             <Sidebar />
-            <div className="dashboard-container">
+            <div className="{styles.dashboard-container}">
                 <UserDashboard />
             </div>
         </div>
