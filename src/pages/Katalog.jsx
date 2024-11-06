@@ -2,6 +2,8 @@ import React from "react";
 import Sidebar from "../components/Sidebar";
 import ListKatalog from "../components/ListKatalog";
 import { Link } from "react-router-dom";
+// import LeftSide from "../components/LeftSide";
+// import ShopFiltering from "../components/ShopFiltering";
 
 function Katalog() {
   return (
@@ -21,6 +23,11 @@ function Katalog() {
           </div>
         </div>
       </div>
+
+
+
+      {/* <LeftSide/>
+      <ShopFiltering/> */}
     </>
   );
 }
