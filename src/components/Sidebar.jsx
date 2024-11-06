@@ -1,30 +1,26 @@
-import React from "react";
-import { MdCheckBoxOutlineBlank } from "react-icons/md";
+import React from 'react';
+import './Sidebar.css';
 
-function Sidebar() {
-  return (
-    <aside className="bg-background rounded-lg shadow-sm p-5 md:w-1/4 lg:w-1/5">
-      <div>
-        <h2 className="text-2xl font-bold py-5">Search</h2>
-        <div className="flex">
-          <input
-            type="text"
-            placeholder="Search here..."
-            className="flex-grow px-4 py-2 border rounded-md"
-          />
-        </div>
-      </div>
-      <div className="p-4 space-y-4">
-        <div>
-          <h3 className="text-xl font-bold">Categories</h3>
-          <div className="flex justify-start gap-3 p-2">
-            <MdCheckBoxOutlineBlank />
-            <h3 className="">Categories</h3>
-          </div>
-        </div>
-      </div>
-    </aside>
-  );
-}
+const Sidebar = () => {
+    return (
+        <aside className="sidebar">
+            <div className="user-info">
+                <img src="user.png" alt="User" className="user-img" />
+                <h3>User</h3>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Informasi Pribadi</a></li>
+                    <li><a href="#">Katalog Baju</a></li>
+                    <li><a href="#">Riwayat Transaksi</a></li>
+                    <li><a href="#">Tantangan</a></li>
+                    <li><a href="#">Pesan dan Notifikasi</a></li>
+                    <li><a href="#">Pengaturan Akun</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+    );
+};
 
 export default Sidebar;

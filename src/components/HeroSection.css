@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --warna-premier: #229799;
+  --warna-sekunder: #f5f5f5;
+  --warna-putih2: #ffffff;
+  --warna-tersier: #48cfcb;
+  --warna-button: #427898;
+  --warna-text: #000000;
+  --warana-kuning: #f5bd41;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.h1 {
+  font-size: 2.5rem;
+  color: #000000;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #fffcfc;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+body {
+  background-color: #009688;
+  color: rgba(0, 0, 0, 0.685);
+  font-family: "Poppins", sans-serif;
+}
+
+.hero-section {
+  display: flex; /* Menggunakan flexbox untuk tata letak */
+  align-items: flex-start; /* Menjaga agar konten dan gambar sejajar di bagian atas */
+  justify-content: space-between; /* Memberikan jarak antara teks dan gambar */
+  background-color: var(--warna-premier);
+  padding: 50px 0; /* Memberikan padding atas dan bawah */
+}
+
+.banner-text {
+  flex: 1; /* Memungkinkan teks mengambil ruang yang sesuai */
+  animation: animate__backInUp;
+  animation-duration: 5s;
+}
+
+.hero-img {
+  width: 100%; /* Pastikan gambar menyesuaikan dengan kontainer */
+  max-width: 400px; /* Atur lebar maksimal gambar */
+  height: auto; /* Tinggi otomatis untuk menjaga rasio gambar */
+  object-fit: cover; /* Memastikan gambar tidak terdistorsi */
+}
+
+.row {
+  display: flex; /* Menggunakan flexbox untuk baris */
+}
+
+
+#btn-banner {
+  width: 150px;
+  padding: 10px 10px;
+  margin-top: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: var(--warana-kuning);
+  color: var(--warna-text);
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease; /* Ganti #427898 dengan background-color */
+}
+
+#btn-banner:hover {
+  background-color: var(--warna-text);
+  color: var(--warna-sekunder);
+}
+
+.banner-text {
+  animation: animate__backInUp;
+  animation-duration: 5s;
+}
+
