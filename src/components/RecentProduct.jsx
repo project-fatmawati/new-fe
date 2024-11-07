@@ -66,7 +66,7 @@ const RecentProduct = () => {
               <div
                 data-aos="zoom-in"
                 key={data.id}
-                className="items-center rounded-2xl p-5 bg-white hover:bg-cyan hover:text-black relative shadow-xl duration-300 group max-w-[300px]"
+                className="items-center rounded-2xl p-5 bg-white hover:text-black  hover:border relative shadow-xl duration-300 group max-w-[300px]"
               >
                 <img
                   src={data.img}

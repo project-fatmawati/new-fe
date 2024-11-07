@@ -38,10 +38,10 @@ function DetailProduk() {
             Colors: <span className="font-normal ">Merah dan Hitam</span>
           </p>
           <div className="flex flex-col gap-4 mb-4">
-            <button className="w-[50%] py-4 bg-black border hover:bg-gray-300 duration-300 text-white font-bold text-xl hover:text-black font-titleFont">
+            <button className="w-[50%] py-4 bg-black hover:bg-mustard duration-300 text-white font-bold text-xl hover:text-black font-titleFont">
               <Link to ="/Cart">Add to Cart</Link>
             </button>
-            <button className="w-[50%] py-4 bg-teal-500 hover:bg-gray-300 duration-300 text-black font-bold text-xl hover:text-black font-titleFont">
+            <button className="w-[50%] py-4 bg-teal-500 hover:bg-cyan duration-300 border text-black font-bold text-xl hover:text-black font-titleFont">
               Add to Wishlist
             </button>
           </div>

@@ -24,7 +24,7 @@ function ListKatalog() {
     <div className="container mx-auto">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center gap-5">
         {products.map((prod) => (
-          <div className="items-center rounded-2xl p-5 bg-gray-200 hover:bg-gray-300 hover:text-black relative shadow-xl duration-300 group max-w-[300px]">
+          <div className="items-center rounded-2xl p-5 bg-white hover:border hover:text-black relative shadow-xl duration-300 group max-w-[300px]">
             <Link to={`/DetailProduk`} state={{ product: prod }}>
               <div className="w-full object-cover rounded-md block mx-auto">
                 <img src={prod?.image} />
@@ -35,8 +35,8 @@ function ListKatalog() {
               <div className=" p-1 text-center">
                 <p className="text-black text-md line-clamp-1">Description</p>
               </div>
-              <button className=" block mx-auto bg-black hover:scale-105 duration-300 text-white py-1 px-4 rounded-full mt-3 group-hover:bg-teal-300 group-hover:text-black">
-                Order Now
+              <button className=" block mx-auto bg-cyan hover:scale-105 duration-300 text-black py-1 px-4 rounded-full mt-3 hover:bg-teal group-hover:text-black">
+                Barter Now
               </button>
             </Link>
           </div>
