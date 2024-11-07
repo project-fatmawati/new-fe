@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "../components/Sidebar";
+// import Sidebar from "../components/Sidebar";
 import ListKatalog from "../components/ListKatalog";
 import { Link } from "react-router-dom";
 // import LeftSide from "../components/LeftSide";
@@ -16,7 +16,7 @@ function Katalog() {
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row">
           <div className="w-full sm:w-1/4 px-5">
-            <Sidebar />
+            {/* <Sidebar /> */}
           </div>
           <div className="w-full sm:w-3/4 px-5">
             <ListKatalog />

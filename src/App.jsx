@@ -3,13 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Katalog from './pages/Katalog'
 import DetailProduk from './pages/DetailProduk'
-import Home from './pages/Home'
 import Cart from './pages/Cart'
 import Payment from './pages/Payment';
 import Homepage from './pages/HomePage'
 import Profile from './pages/Profile'
 import ChallengeDetail from './pages/ChallengeDetail'
-// import { AuthProvider } from './context/AuthContext';
+import { AuthProvider } from './context/AuthContext';
 // import Footer from "./component/Footer";
 // import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
@@ -17,14 +16,12 @@ import Daftar from "./pages/Register";
 
 function App() {
   return (
-    // <AuthProvider>
-
-      <Router>
+    <AuthProvider>
+      {/* <Router> */}
         <Routes>
           {/* <Route path="/" element={<><Navbar /><LandingPage /><Footer /></>} /> */}
           <Route path="/Login" element={<Login />} />
           <Route path="/Daftar" element={<Daftar />} />
-          <Route path='/Home' element = {<Home/>}/>
           <Route path='/Katalog' element = {<Katalog/>}/>
           <Route path='/DetailProduk' element = {<DetailProduk/>}/>
           <Route path='/Cart' element = {<Cart/>}/>
@@ -33,9 +30,9 @@ function App() {
           <Route path='/Profile' element = {<Profile/>}/>
           <Route path='/ChallengeDetail' element = {<ChallengeDetail/>}/>
         </Routes>
-      </Router>
+      {/* </Router> */}
 
-      // </AuthProvider>
+      </AuthProvider>
 
   )
 }

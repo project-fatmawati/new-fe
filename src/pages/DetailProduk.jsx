@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import Navbar from '../components/Navbar'
 
 function DetailProduk() {
   const location = useLocation();
@@ -8,6 +9,7 @@ function DetailProduk() {
 
   return (
     <>
+    <Navbar/>
       <div className="w-full flex justify-center p-[40px]  bg-slate-300">
         <h1 className="text-xl">
           <Link to={`/`}>Home</Link> / Detail Product

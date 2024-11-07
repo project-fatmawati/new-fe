@@ -4,15 +4,15 @@ import Logo from '../assets/Logo-nav.png';
 import Icon from '../assets/clothes-icon.png'; // Pastikan path ini benar
 
 
-// function Navbar() {
-//   return (
-//     <nav className="bg-white px-4 py-3 shadow-md font-sans relative">
-//       <div className="container mx-auto flex items-center justify-between">
-//         <img src={Logo} alt="BarterStyle Logo" className="h-12" />
-//       </div>
-//     </nav>
-//   );
-// }
+function Navbar() {
+  return (
+    <nav className="bg-white px-4 py-3 shadow-md font-sans relative">
+      <div className="container mx-auto flex items-center justify-between">
+        <img src={Logo} alt="BarterStyle Logo" className="h-12" />
+      </div>
+    </nav>
+  );
+}
 
 function Register() {
   const [firstName, setFirstName] = useState('');
@@ -49,7 +49,7 @@ function Register() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
-      {/* <Navbar /> */}
+      <Navbar />
       <div className="flex-grow flex items-center justify-center py-12">
         <div className="w-full max-w-md p-6 bg-white shadow-md rounded-lg">
           {/* Signup Form */}
@@ -170,10 +170,11 @@ function Register() {
               <span className="text-sm text-gray">Saya ingin berlangganan Newsletter.</span>
             </div>
 
-            <button type="submit" className="w-full bg-teal text-white font-bold py-2 rounded hover:bg-cyan transition duration-200">Daftar</button>
+            <button type="submit" className="w-full bg-teal-500 text-white font-bold py-2 rounded hover:bg-cyan transition duration-200">Daftar</button>
           </form>
 
-          <p className="text-center mt-4 text-sm text-gray">Sudah punya akun? <Link to="/login" className="text-cyan">Masuk Sekarang</Link></p>
+          <p className=" text-center mt-4 text-sm text-gray">Sudah punya akun? <Link to="/login" className="text-cyan">Masuk Sekarang</Link></p>
+
         </div>
       </div>
     </div>
