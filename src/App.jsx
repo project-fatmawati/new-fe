@@ -18,8 +18,7 @@ import Daftar from "./pages/Register";
 function App() {
   return (
     // <AuthProvider>
-
-      <Router>
+      // <Router>
         <Routes>
           {/* <Route path="/" element={<><Navbar /><LandingPage /><Footer /></>} /> */}
           <Route path="/Login" element={<Login />} />
@@ -33,7 +32,7 @@ function App() {
           <Route path='/Profile' element = {<Profile/>}/>
           <Route path='/ChallengeDetail' element = {<ChallengeDetail/>}/>
         </Routes>
-      </Router>
+      // </Router>
 
       // </AuthProvider>
 
