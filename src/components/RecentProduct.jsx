@@ -42,21 +42,22 @@ const ProductsData = [
     description:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
+
 ];
 
-const RecentProduct = ({ handleOrderPopup }) => {
+const RecentProduct = () => {
   return (
     <div>
-      <div className="container mx-auto">
+      <div className="container mx-auto pb-[50px]">
         {/* Header section */}
-        <div className="text-center mb-10 max-w-[600px] mx-auto">
+        {/* <div className="text-center mb-10 max-w-[600px] mx-auto">
           <h1 data-aos="fade-up" className="text-4xl font-bold pb-2">
             Recent Products
           </h1>
           <p data-aos="fade-up" className="text-xl text-black pt-5">
             Ambillah Bagian dari Gerakan Sustainability Fahion dengan Menukarkan Pakaian Anda Sekarang
           </p>
-        </div>
+        </div> */}
         {/* Body section */}
         <div>
           <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-5 pb-5">
@@ -65,7 +66,7 @@ const RecentProduct = ({ handleOrderPopup }) => {
               <div
                 data-aos="zoom-in"
                 key={data.id}
-                className="items-center rounded-2xl p-5  bg-gray-200 hover:bg-black/80 hover:text-black relative shadow-xl duration-300 group max-w-[300px]"
+                className="items-center rounded-2xl p-5  bg-gray-200 hover:bg-white hover:text-black relative shadow-xl duration-300 group max-w-[300px]"
               >
                 <img
                   src={data.img}
@@ -79,16 +80,15 @@ const RecentProduct = ({ handleOrderPopup }) => {
                     <FaStar className="text-yellow-400" />
                     <span>{data.rating}</span>
                   </div>
-                  <h3 className="font-semibold text-xl group-hover:text-white">
+                  <h3 className="font-semibold text-xl">
                     {data.title}
                   </h3>
                 </div>
-                <p className="text-gray-500 group-hover:text-white duration-300 text-sm line-clamp-1">
+                <p className="text-gray-500 duration-300 text-sm line-clamp-1">
                   {data.description}
                 </p>
                 <button
-                  className=" block mx-auto bg-black hover:scale-105 duration-300 text-white py-1 px-4 rounded-full mt-4 group-hover:bg-white group-hover:text-black"
-                  onClick={handleOrderPopup}
+                  className=" block mx-auto bg-teal-700 hover:scale-105 duration-300 text-white py-1 px-4 rounded-full mt-4 group-hover:bg-teal-500 "
                 >
                   Barter Now
                 </button>
@@ -97,7 +97,7 @@ const RecentProduct = ({ handleOrderPopup }) => {
           </div>
           <div className="flex justify-center">
             <button className="text-center  text-xl mt-10 cursor-pointer bg-black hover:bg-teal-600 text-white py-1 px-5 rounded-full">
-              <Link to="/Katalog">View All Button</Link>
+              <Link to="/Katalog">View All Products</Link>
             </button>
           </div>
         </div>
