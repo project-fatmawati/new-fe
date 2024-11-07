@@ -4,10 +4,13 @@ import ListKatalog from "../components/ListKatalog";
 import { Link } from "react-router-dom";
 // import LeftSide from "../components/LeftSide";
 // import ShopFiltering from "../components/ShopFiltering";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function Katalog() {
   return (
     <>
+    <Navbar/>
       <div className="w-full flex justify-center p-[40px]  bg-slate-300">
         <h1 className="text-xl">
           <Link to={`/`}>Home</Link> / Katalog
@@ -23,6 +26,7 @@ function Katalog() {
           </div>
         </div>
       </div>
+      <Footer/>
 
 
 
