@@ -11,12 +11,12 @@ function Katalog() {
   return (
     <>
     <Navbar/>
-      <div className="w-full flex justify-center p-[40px]  bg-slate-300">
+      <div className="w-full flex justify-center p-[80px]  bg-cyan">
         <h1 className="text-xl">
           <Link to={`/`}>Home</Link> / Katalog
         </h1>
       </div>
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-[100px]">
         <div className="flex flex-col md:flex-row">
           <div className="w-full sm:w-1/4 px-5">
             {/* <Sidebar /> */}

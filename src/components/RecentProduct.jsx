@@ -66,7 +66,7 @@ const RecentProduct = () => {
               <div
                 data-aos="zoom-in"
                 key={data.id}
-                className="items-center rounded-2xl p-5  bg-gray-200 hover:bg-white hover:text-black relative shadow-xl duration-300 group max-w-[300px]"
+                className="items-center rounded-2xl p-5 bg-white hover:text-black  hover:border relative shadow-xl duration-300 group max-w-[300px]"
               >
                 <img
                   src={data.img}
@@ -74,7 +74,9 @@ const RecentProduct = () => {
                   className="h-[220px] w-[150px] object-cover rounded-md block mx-auto"
                 />
                 <div className="text-center">
-                  <div className="flex justify-center gap-1">
+                  <div className="flex justify-center pt-5 ">
+                    <FaStar className="text-yellow-400" />
+                    <FaStar className="text-yellow-400" />
                     <FaStar className="text-yellow-400" />
                     <FaStar className="text-yellow-400" />
                     <FaStar className="text-yellow-400" />
@@ -88,7 +90,7 @@ const RecentProduct = () => {
                   {data.description}
                 </p>
                 <button
-                  className=" block mx-auto bg-teal-700 hover:scale-105 duration-300 text-white py-1 px-4 rounded-full mt-4 group-hover:bg-teal-500 "
+                  className=" block mx-auto bg-teal hover:scale-105 duration-300 text-white py-1 px-4 rounded-full mt-4 group-hover:bg-teal-500 "
                 >
                   Barter Now
                 </button>

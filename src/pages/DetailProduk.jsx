@@ -11,12 +11,12 @@ function DetailProduk() {
   return (
     <>
     <Navbar/>
-      <div className="w-full flex justify-center p-[100px]  bg-teal-500">
+      <div className="w-full flex justify-center p-[100px] bg-cyan">
         <h1 className="text-xl">
           <Link to={`/`}>Home</Link> / Detail Product
         </h1>
       </div>
-      <div className="flex flex-col md:flex-row gap-4 p-[50px]">
+      <div className="flex flex-col md:flex-row gap-4 py-[100px] pb-[100px]">
         <div className="md:w-[40%]">
           <div className="w-full md:w-1/2 mx-auto border flex justify-center">
             <img
@@ -38,10 +38,10 @@ function DetailProduk() {
             Colors: <span className="font-normal ">Merah dan Hitam</span>
           </p>
           <div className="flex flex-col gap-4 mb-4">
-            <button className="w-[50%] py-4 bg-black border hover:bg-gray-300 duration-300 text-white font-bold text-xl hover:text-black font-titleFont">
+            <button className="w-[50%] py-4 bg-black hover:bg-mustard duration-300 text-white font-bold text-xl hover:text-black font-titleFont">
               <Link to ="/Cart">Add to Cart</Link>
             </button>
-            <button className="w-[50%] py-4 bg-teal-500 hover:bg-gray-300 duration-300 text-black font-bold text-xl hover:text-black font-titleFont">
+            <button className="w-[50%] py-4 bg-teal-500 hover:bg-cyan duration-300 border text-black font-bold text-xl hover:text-black font-titleFont">
               Add to Wishlist
             </button>
           </div>
