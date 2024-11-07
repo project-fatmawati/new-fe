@@ -1,6 +1,8 @@
 import React from "react";
 import CartItem from "../components/CartItem";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 
 const Cart = () => {
@@ -17,6 +19,8 @@ const Cart = () => {
   ];
 
   return (
+    <>
+    <Navbar/>
     <div className="container mx-auto py-8">
       {" "}
       {/* Added padding for responsiveness */}
@@ -71,6 +75,8 @@ const Cart = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

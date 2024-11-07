@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import Navbar from '../components/Navbar'
+import Footer from "../components/Footer";
 
 function DetailProduk() {
   const location = useLocation();
@@ -10,7 +11,7 @@ function DetailProduk() {
   return (
     <>
     <Navbar/>
-      <div className="w-full flex justify-center p-[40px]  bg-slate-300">
+      <div className="w-full flex justify-center p-[100px]  bg-teal-500">
         <h1 className="text-xl">
           <Link to={`/`}>Home</Link> / Detail Product
         </h1>
@@ -37,10 +38,10 @@ function DetailProduk() {
             Colors: <span className="font-normal ">Merah dan Hitam</span>
           </p>
           <div className="flex flex-col gap-4 mb-4">
-            <button className="w-[50%] py-4 bg-black border hover:bg-gray-500 duration-300 text-white font-bold text-xl hover:text-black font-titleFont">
+            <button className="w-[50%] py-4 bg-black border hover:bg-gray-300 duration-300 text-white font-bold text-xl hover:text-black font-titleFont">
               <Link to ="/Cart">Add to Cart</Link>
             </button>
-            <button className="w-[50%] py-4 bg-black border hover:bg-gray-500 duration-300 text-white font-bold text-xl hover:text-black font-titleFont">
+            <button className="w-[50%] py-4 bg-teal-500 hover:bg-gray-300 duration-300 text-black font-bold text-xl hover:text-black font-titleFont">
               Add to Wishlist
             </button>
           </div>
@@ -52,6 +53,7 @@ function DetailProduk() {
           </p>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
