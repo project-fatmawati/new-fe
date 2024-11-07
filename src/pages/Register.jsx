@@ -3,15 +3,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../assets/Logo-nav.png';
 import Icon from '../assets/clothes-icon.png'; // Pastikan path ini benar
 
-function Navbar() {
-  return (
-    <nav className="bg-white px-4 py-3 shadow-md font-sans relative">
-      <div className="container mx-auto flex items-center justify-between">
-        <img src={Logo} alt="BarterStyle Logo" className="h-12" />
-      </div>
-    </nav>
-  );
-}
+
+// function Navbar() {
+//   return (
+//     <nav className="bg-white px-4 py-3 shadow-md font-sans relative">
+//       <div className="container mx-auto flex items-center justify-between">
+//         <img src={Logo} alt="BarterStyle Logo" className="h-12" />
+//       </div>
+//     </nav>
+//   );
+// }
 
 function Register() {
   const [firstName, setFirstName] = useState('');
@@ -48,7 +49,7 @@ function Register() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="flex-grow flex items-center justify-center py-12">
         <div className="w-full max-w-md p-6 bg-white shadow-md rounded-lg">
           {/* Signup Form */}

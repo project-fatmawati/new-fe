@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import Logo from '../assets/Logo-nav.png';
 import Icon from '../assets/clothes-icon.png';
 
-function Navbar() {
-  return (
-    <nav className="bg-white px-4 py-3 shadow-md font-sans relative">
-    <div className="container mx-auto flex items-center justify-between">
-      <img src={Logo} alt="BarterStyle Logo" className="h-12" />
-    </div>
-    </nav>
-  );
-}
+// function Navbar() {
+//   return (
+//     <nav className="bg-white px-4 py-3 shadow-md font-sans relative">
+//     <div className="container mx-auto flex items-center justify-between">
+//       <img src={Logo} alt="BarterStyle Logo" className="h-12" />
+//     </div>
+//     </nav>
+//   );
+// }
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -28,7 +28,7 @@ function Login() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="flex justify-center items-center h-[80vh]">
         <div className="bg-white rounded-lg shadow-lg p-10 w-full max-w-md">
           <div className="text-center mb-6">
