@@ -10,7 +10,7 @@ import Profile from './pages/Profile'
 import ChallengeDetail from './pages/ChallengeDetail'
 import { AuthProvider } from './context/AuthContext';
 // import Footer from "./component/Footer";
-// import LandingPage from "./pages/LandingPage";
+import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import Daftar from "./pages/Register";
 import Layout from './components/Layout';
@@ -25,21 +25,21 @@ function App() {
       {/* <Router> */}
         <Routes>
           {/* <Route path="/" element={<><Navbar /><LandingPage /><Footer /></>} /> */}
-          <Route path="/" element={<Layout/>}>
+          <Route path="Dashboard" element={<Layout/>}>
           <Route index element={<Dashboard/>}/>
           <Route path="Riwayat" element={<RiwayatTransaksi/>}/>
           <Route path="Akun" element={<PengaturanAkun/>}/>
           <Route path="Event" element={<Event/>}/>
           </Route>
 
-
+          <Route path='/' element = {<LandingPage/>}/>
           <Route path="/Login" element={<Login />} />
           <Route path="/Daftar" element={<Daftar />} />
           <Route path='/Katalog' element = {<Katalog/>}/>
           <Route path='/DetailProduk' element = {<DetailProduk/>}/>
           <Route path='/Cart' element = {<Cart/>}/>
           <Route path='/Payment' element = {<Payment/>}/>
-          <Route path='/' element = {<Homepage/>}/>
+          <Route path='/HomePage' element = {<Homepage/>}/>
           <Route path='/Profile' element = {<Profile/>}/>
           <Route path='/ChallengeDetail' element = {<ChallengeDetail/>}/>
         </Routes>

@@ -170,7 +170,7 @@ function Register() {
               <span className="text-sm text-gray">Saya ingin berlangganan Newsletter.</span>
             </div>
 
-            <button type="submit" className="w-full bg-teal-500 text-white font-bold py-2 rounded hover:bg-cyan transition duration-200">Daftar</button>
+            <button type="submit" className="w-full bg-teal text-white font-bold py-2 rounded hover:bg-cyan transition duration-200">Daftar</button>
           </form>
 
           <p className=" text-center mt-4 text-sm text-gray">Sudah punya akun? <Link to="/login" className="text-cyan">Masuk Sekarang</Link></p>

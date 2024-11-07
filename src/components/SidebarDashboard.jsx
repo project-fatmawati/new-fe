@@ -13,7 +13,7 @@ function SidebarDashboard() {
   };
 
   const SIDEBAR_LINKS = [
-    { id: 1, path: "/", name: "Dashboard", icon: <MdDashboard /> },
+    { id: 1, path: "/Dashboard", name: "Dashboard", icon: <MdDashboard /> },
     {
       id: 2,
       path: "/Riwayat",
