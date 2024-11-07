@@ -29,7 +29,7 @@ const Cart = () => {
         {" "}
         {/* Responsive table container */}
         <table className="w-full border-collapse sm:table">
-          <thead className="border bg-slate-200 text-xl">
+          <thead className="border bg-teal-500 text-xl">
             <tr>
               <th className="py-2 px-4 text-left">Produk</th>
               <th className="py-2 px-4 text-right">Harga</th>

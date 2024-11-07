@@ -16,7 +16,7 @@ function DetailProduk() {
           <Link to={`/`}>Home</Link> / Detail Product
         </h1>
       </div>
-      <div className="flex flex-col md:flex-row gap-4 p-[50px]">
+      <div className="flex flex-col md:flex-row gap-4 py-[100px] pb-[100px]">
         <div className="md:w-[40%]">
           <div className="w-full md:w-1/2 mx-auto border flex justify-center">
             <img
