@@ -6,7 +6,7 @@ import Newsletter from '../component/Newsletter';
 
 function LandingPage() {
   return (
-    <main className="landing-page bg-gray-100"> {/* You can add classes like bg-gray-100 for styling */}
+    <main className="landing-page bg-gray">
       <HeroSection />
       <ProductRecommendation />
       <FAQ />
