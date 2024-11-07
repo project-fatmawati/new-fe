@@ -68,7 +68,7 @@ function Login() {
             </div>
             <button
               type="submit"
-              className="w-full bg-teal text-white font-bold py-2 rounded hover:bg-cyan transition duration-200"
+              className="w-full bg-teal-500 text-white font-bold py-2 rounded hover:bg-cyan transition duration-200"
             >
               Masuk
             </button>
