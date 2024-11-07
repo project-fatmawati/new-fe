@@ -21,7 +21,13 @@ const Cart = () => {
   return (
     <>
     <Navbar/>
-    <div className="container mx-auto py-8">
+    <div className='w-full p-[100px] text-center bg-cyan'>
+      <h1 className="text-xl">
+          <Link to={`/`}>Home</Link> / Keranjang Belanja
+      </h1>
+    </div>
+
+    <div className="container mx-auto py-[100px]">
       {" "}
       {/* Added padding for responsiveness */}
       <h1 className="text-2xl font-bold mb-4">Keranjang Belanja</h1>
@@ -29,7 +35,7 @@ const Cart = () => {
         {" "}
         {/* Responsive table container */}
         <table className="w-full border-collapse sm:table">
-          <thead className="border bg-teal-500 text-xl">
+          <thead className=" bg-mustard text-xl">
             <tr>
               <th className="py-2 px-4 text-left">Produk</th>
               <th className="py-2 px-4 text-right">Harga</th>
@@ -68,7 +74,7 @@ const Cart = () => {
             <span className="font-bold">Rp 15.000</span>
           </div>
           <div className="mt-4 flex justify-end">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            <button className="bg-slate-blue hover:bg-black text-white font-bold py-2 px-4 rounded-full">
               <Link to= "/Payment">PROCEED TO CHECKOUT</Link>
             </button>
           </div>

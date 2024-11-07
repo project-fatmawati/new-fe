@@ -11,7 +11,7 @@ function DetailProduk() {
   return (
     <>
     <Navbar/>
-      <div className="w-full flex justify-center p-[100px]  bg-teal-500">
+      <div className="w-full flex justify-center p-[100px] bg-cyan">
         <h1 className="text-xl">
           <Link to={`/`}>Home</Link> / Detail Product
         </h1>
