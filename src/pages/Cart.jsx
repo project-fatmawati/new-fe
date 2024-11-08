@@ -21,7 +21,7 @@ const Cart = () => {
   return (
     <>
     <Navbar/>
-    <div className='w-full p-[100px] text-center bg-cyan'>
+    <div className='w-full p-[80px] text-center bg-cyan'>
       <h1 className="text-xl">
           <Link to={`/`}>Home</Link> / Keranjang Belanja
       </h1>

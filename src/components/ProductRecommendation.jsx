@@ -1,21 +1,21 @@
 import React from 'react';
-import kaosPendek from '../assets/KaosPendek.png';
+// import kaosPendek from '../assets/kaosPendek.png'
 import hoodieAbu from '../assets/HoodieAbu.png';
 import blouseWanita from '../assets/BlouseWanita.png';
 import blouseShakila from '../assets/BlouseShakila.png';
 import cardiganHitam from '../assets/CardiganHitam.png';
-import rokPlisket from '../assets/RokPlisket.png';
+// import rokPlisket from '../assets/RokPlisket.png';
 import jaketDenim from '../assets/JaketDenim.png';
 import celanaBahan from '../assets/CelanaBahan.png';
 
 function ProductRecommendation() {
   const products = [
-    { id: 1, name: 'Kaos Pendek', imgSrc: kaosPendek },
+    // { id: 1, name: 'Kaos Pendek', imgSrc: kaosPendek },
     { id: 2, name: 'Hoodie Abu', imgSrc: hoodieAbu },
     { id: 3, name: 'Blouse Wanita', imgSrc: blouseWanita },
     { id: 4, name: 'Blouse Shakila', imgSrc: blouseShakila },
     { id: 5, name: 'Cardigan Hitam', imgSrc: cardiganHitam },
-    { id: 6, name: 'Rok Plisket', imgSrc: rokPlisket },
+    // { id: 6, name: 'Rok Plisket', imgSrc: rokPlisket },
     { id: 7, name: 'Jaket Denim', imgSrc: jaketDenim },
     { id: 8, name: 'Celana Bahan', imgSrc: celanaBahan },
   ];

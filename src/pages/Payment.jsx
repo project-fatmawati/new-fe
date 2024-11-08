@@ -29,7 +29,7 @@ function Payment() {
   return (
     <div>
       <Navbar/>
-      <h1 className="text-center p-[80px] font-bold text-4xl bg-cyan"> Hello Rika Kamila!</h1>
+      <h1 className="text-center p-[80px] font-medium text-4xl bg-cyan"> Hello, Rika Kamila!</h1>
       <div className="container mx-auto px-4 pt-[80px] pb-[100px]">
         <h2 className="text-2xl font-bold mb-4">Billing Details</h2>
         <form className="space-y-4 pb-3">
