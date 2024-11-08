@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import Navbar from '../components/Navbar'
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 function DetailProduk() {
@@ -10,7 +10,7 @@ function DetailProduk() {
 
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <div className="w-full flex justify-center p-[80px] bg-cyan">
         <h1 className="text-xl">
           <Link to={`/`}>Home</Link> / Detail Product
@@ -39,7 +39,7 @@ function DetailProduk() {
           </p>
           <div className="flex flex-col gap-4 mb-4">
             <button className="w-[50%] py-4 bg-black hover:bg-mustard duration-300 text-white font-bold text-xl hover:text-black font-titleFont">
-              <Link to ="/Cart">Add to Cart</Link>
+              <Link to="/Cart">Add to Cart</Link>
             </button>
             <button className="w-[50%] py-4 bg-teal-500 hover:bg-cyan duration-300 border text-black font-bold text-xl hover:text-black font-titleFont">
               Add to Wishlist
@@ -53,7 +53,7 @@ function DetailProduk() {
           </p>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

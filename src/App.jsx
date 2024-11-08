@@ -20,13 +20,14 @@ import Dashboard from './components/Dashboard';
 import RiwayatTransaksi from './pages/RiwayatTransaksi'
 import PengaturanAkun from './pages/PengaturanAkun'
 import Event from './pages/Event'
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
     <AuthProvider>
       {/* <Router> */}
         <Routes>
-        <Route path="/" element={<Layout/>}>
+        <Route path="/Dashboard" element={<Layout/>}>
           <Route index element={<Dashboard/>}/>
           <Route path="Riwayat" element={<RiwayatTransaksi/>}/>
           <Route path="Akun" element={<PengaturanAkun/>}/>
@@ -42,7 +43,7 @@ function App() {
           <Route path='/DetailProduk' element = {<DetailProduk/>}/>
           <Route path='/Cart' element = {<Cart/>}/>
           <Route path='/Payment' element = {<Payment/>}/>
-          <Route path='/' element = {<Homepage/>}/>
+          <Route path='/' element = {<HomePage/>}/>
           <Route path='/Profile' element = {<Profile/>}/>
           <Route path='/ChallengeDetail' element = {<ChallengeDetail/>}/>
         </Routes>

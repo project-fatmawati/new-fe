@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-
 const Cart = () => {
   const cartItems = [
     {
@@ -20,68 +19,68 @@ const Cart = () => {
 
   return (
     <>
-    <Navbar/>
-    <div className='w-full p-[80px] text-center bg-cyan'>
-      <h1 className="text-xl">
+      <Navbar />
+      <div className="w-full p-[80px] text-center bg-cyan">
+        <h1 className="text-xl">
           <Link to={`/`}>Home</Link> / Keranjang Belanja
-      </h1>
-    </div>
+        </h1>
+      </div>
 
-    <div className="container mx-auto py-[100px]">
-      {" "}
-      {/* Added padding for responsiveness */}
-      <h1 className="text-2xl font-bold mb-4">Keranjang Belanja</h1>
-      <div className="flex flex-col sm:flex-row justify-between gap-10">
+      <div className="container mx-auto py-[100px]">
         {" "}
-        {/* Responsive table container */}
-        <table className="w-full border-collapse sm:table">
-          <thead className=" bg-mustard text-xl">
-            <tr>
-              <th className="py-2 px-4 text-left">Produk</th>
-              <th className="py-2 px-4 text-right">Harga</th>
-              <th className="py-2 px-4 text-center ">Qty</th>
-              <th className="py-2 px-4 text-right ">Subtotal</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cartItems.map((item) => (
-              <CartItem key={item.id} item={item} />
-            ))}
-          </tbody>
-        </table>
-        <div className="mt-8 sm:mt-0 w-full sm:w-1/2 border p-5">
-          <h2 className="text-xl font-bold mb-4">Total Keranjang</h2>
-          <div className="flex justify-between mb-2 text-lg">
-            <span className="font-bold">Subtotal</span>
-            <span>Rp. 0</span>
-          </div>
-          <div className="flex justify-between mb-2 text-lg">
-            <span className="font-bold">Transaction Fee</span>
-            <span>Rp. 5.000</span>
-          </div>
-          <div className="flex justify-between mb-2 text-lg">
-            <span className="font-bold">Shipping</span>
-            <span>Rp. 10.000</span>
-          </div>
-          <div className="flex justify-between mb-2 italic">
-            <h2>
-              Shipping Addres : Jl. Tegal Parang Selatan I, Mampang Prapatan,
-              Kota Jakarta Selatan, DKI Jakarta, 12790.
-            </h2>
-          </div>
-          <div className="flex justify-between text-lg">
-            <span className="font-bold">TOTAL</span>
-            <span className="font-bold">Rp 15.000</span>
-          </div>
-          <div className="mt-4 flex justify-end">
-            <button className="bg-slate-blue hover:bg-black text-white font-bold py-2 px-4 rounded-full">
-              <Link to= "/Payment">PROCEED TO CHECKOUT</Link>
-            </button>
+        {/* Added padding for responsiveness */}
+        <h1 className="text-2xl font-bold mb-4">Keranjang Belanja</h1>
+        <div className="flex flex-col sm:flex-row justify-between gap-10">
+          {" "}
+          {/* Responsive table container */}
+          <table className="w-full border-collapse sm:table">
+            <thead className=" bg-mustard text-xl">
+              <tr>
+                <th className="py-2 px-4 text-left">Produk</th>
+                <th className="py-2 px-4 text-right">Harga</th>
+                <th className="py-2 px-4 text-center ">Qty</th>
+                <th className="py-2 px-4 text-right ">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartItems.map((item) => (
+                <CartItem key={item.id} item={item} />
+              ))}
+            </tbody>
+          </table>
+          <div className="mt-8 sm:mt-0 w-full sm:w-1/2 border p-5">
+            <h2 className="text-xl font-bold mb-4">Total Keranjang</h2>
+            <div className="flex justify-between mb-2 text-lg">
+              <span className="font-bold">Subtotal</span>
+              <span>Rp. 0</span>
+            </div>
+            <div className="flex justify-between mb-2 text-lg">
+              <span className="font-bold">Transaction Fee</span>
+              <span>Rp. 5.000</span>
+            </div>
+            <div className="flex justify-between mb-2 text-lg">
+              <span className="font-bold">Shipping</span>
+              <span>Rp. 10.000</span>
+            </div>
+            <div className="flex justify-between mb-2 italic">
+              <h2>
+                Shipping Addres : Jl. Tegal Parang Selatan I, Mampang Prapatan,
+                Kota Jakarta Selatan, DKI Jakarta, 12790.
+              </h2>
+            </div>
+            <div className="flex justify-between text-lg">
+              <span className="font-bold">TOTAL</span>
+              <span className="font-bold">Rp 15.000</span>
+            </div>
+            <div className="mt-4 flex justify-end">
+              <button className="bg-slate-blue hover:bg-black text-white font-bold py-2 px-4 rounded-full">
+                <Link to="/Payment">PROCEED TO CHECKOUT</Link>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <Footer/>
+      <Footer />
     </>
   );
 };
