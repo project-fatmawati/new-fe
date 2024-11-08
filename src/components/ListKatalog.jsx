@@ -35,9 +35,11 @@ function ListKatalog() {
               <div className=" p-1 text-center">
                 <p className="text-black text-md line-clamp-1">Description</p>
               </div>
-              <button className=" block mx-auto bg-cyan hover:scale-105 duration-300 text-black py-1 px-4 rounded-full mt-3 hover:bg-teal group-hover:text-black">
-                Barter Now
-              </button>
+              <button
+                  className=" block mx-auto bg-teal hover:scale-105 duration-300 text-white py-1 px-4 rounded-full mt-4 group-hover:bg-teal-500 "
+                >
+                  Barter Now
+                </button>
             </Link>
           </div>
         ))}
