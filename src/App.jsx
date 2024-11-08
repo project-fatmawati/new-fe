@@ -10,7 +10,7 @@ import Profile from './pages/Profile'
 import ChallengeDetail from './pages/ChallengeDetail'
 import { AuthProvider } from './context/AuthContext';
 // import Footer from "./component/Footer";
-// import LandingPage from "./pages/LandingPage";
+import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import Daftar from "./pages/Register";
 
@@ -19,7 +19,7 @@ function App() {
     <AuthProvider>
       {/* <Router> */}
         <Routes>
-          {/* <Route path="/" element={<><Navbar /><LandingPage /><Footer /></>} /> */}
+          <Route path="/" element={<><Navbar /><LandingPage /><Footer /></>} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Daftar" element={<Daftar />} />
           <Route path='/Katalog' element = {<Katalog/>}/>

@@ -30,8 +30,7 @@ function Katalog() {
 
 
 
-      {/* <LeftSide/>
-      <ShopFiltering/> */}
+      
     </>
   );
 }

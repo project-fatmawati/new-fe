@@ -1,8 +1,8 @@
 import React from 'react';
-import HeroSection from "../component/HeroSection";
-import ProductRecommendation from "../component/ProductRecommendation";
-import FAQ from "../component/FAQ";
-import Newsletter from '../component/Newsletter';
+import HeroSection from "../components/HeroSection";
+import ProductRecommendation from "../components/ProductRecommendation";
+import FAQ from "../components/FAQ";
+import Newsletter from '../components/Newsletter';
 
 function LandingPage() {
   return (
