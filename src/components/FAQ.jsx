@@ -31,14 +31,14 @@ function Faq() {
     <section className=" bg-white">
       <Header title="FAQ" description="Cari Tahu BarterStyle Disini !" />
       <div className=" flex justify-center">
-        <div className="w-full max-w-[1000px]">
+        <div className="w-full max-w-[1000px] px-3">
           {faqs.map((faq, index) => (
             <details
               key={index}
               className="mb-4 bg-white p-4 border rounded-lg shadow-md"
             >
-              <summary className="font-semibold">{faq.question}</summary>
-              <p className="mt-2 text-gray-700">{faq.answer}</p>
+              <summary className="font-semibold text-teal text-lg">{faq.question}</summary>
+              <p className="mt-2 ">{faq.answer}</p>
             </details>
           ))}
         </div>

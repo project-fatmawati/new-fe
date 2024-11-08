@@ -75,11 +75,11 @@ const RecentProduct = () => {
                 />
                 <div className="text-center">
                   <div className="flex justify-center pt-5 ">
-                    <FaStar className="text-yellow-400" />
-                    <FaStar className="text-yellow-400" />
-                    <FaStar className="text-yellow-400" />
-                    <FaStar className="text-yellow-400" />
-                    <FaStar className="text-yellow-400" />
+                    <FaStar className="text-mustard" />
+                    <FaStar className="text-mustard" />
+                    <FaStar className="text-mustard" />
+                    <FaStar className="text-mustard" />
+                    <FaStar className="text-mustard" />
                     <span>{data.rating}</span>
                   </div>
                   <h3 className="font-semibold text-xl">
