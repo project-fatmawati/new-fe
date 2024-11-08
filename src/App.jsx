@@ -21,6 +21,7 @@ import RiwayatTransaksi from './pages/RiwayatTransaksi'
 import PengaturanAkun from './pages/PengaturanAkun'
 import Event from './pages/Event'
 import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Route path='/' element = {<HomePage/>}/>
           <Route path='/Profile' element = {<Profile/>}/>
           <Route path='/ChallengeDetail' element = {<ChallengeDetail/>}/>
+          <Route path='/About' element = {<AboutPage/>}/>
         </Routes>
       {/* </Router> */}
 
