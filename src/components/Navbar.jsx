@@ -69,7 +69,7 @@ function Navbar() {
         <Link to="/" className="block text-black font-bold text-base py-2 hover:text-teal-700">Home</Link>
         <Link to="/katalog" className="block text-black font-bold text-base py-2 hover:text-teal-700">Katalog Pakaian</Link>
         <Link to="/informasi" className="block text-black font-bold text-base py-2 hover:text-teal-700">Informasi</Link>
-        <Link to="/About" className="block text-black font-bold text-base py-2 hover:text-teal-700">Tentang Kami</Link>
+        <Link to="/tentang" className="block text-black font-bold text-base py-2 hover:text-teal-700">Tentang Kami</Link>
         {isLoggedIn ? (
           <button onClick={logout} className="block text-black font-bold text-base py-2">Logout</button>
         ) : (
