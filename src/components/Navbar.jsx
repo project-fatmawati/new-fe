@@ -34,7 +34,7 @@ function Navbar() {
         </Link>
         <div className="flex items-center space-x-6 hidden md:flex">
           <Link to="/" className="text-black font-bold text-lg hover:text-teal-700">Home</Link>
-          <Link to="/katalog" className="text-black font-bold text-lg hover:text-teal-700">Katalog Pakaian</Link>
+          <Link to="/katalog" className="text-black font-bold text-lg hover:text-teal-700">Katalog</Link>
           <Link to="/informasi" className="text-black font-bold text-lg hover:text-teal-700">Informasi</Link>
           <Link to="/tentang" className="text-black font-bold text-lg hover:text-teal-700">Tentang Kami</Link>
           {isLoggedIn ? (
