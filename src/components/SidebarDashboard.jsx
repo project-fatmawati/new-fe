@@ -16,13 +16,13 @@ function SidebarDashboard() {
     { id: 1, path: "/Dashboard", name: "Dashboard", icon: <MdDashboard /> },
     {
       id: 2,
-      path: "/Riwayat",
+      path: "/Dashboard/Riwayat",
       name: "Riwayat Transaksi",
       icon: <MdDashboard />,
     },
-    { id: 3, path: "/Medali", name: "My Medali", icon: <MdDashboard /> },
-    { id: 4, path: "/Event", name: "Event", icon: <MdDashboard /> },
-    { id: 5, path: "/Akun", name: "Pengaturan Akun", icon: <MdDashboard /> },
+    { id: 3, path: "/Dashboard/Medali", name: "My Medali", icon: <MdDashboard /> },
+    { id: 4, path: "/Dashboard/Event", name: "Event", icon: <MdDashboard /> },
+    { id: 5, path: "/Dashboard/Akun", name: "Pengaturan Akun", icon: <MdDashboard /> },
     { id: 6, path: "/Logout", name: "Logout", icon: <MdDashboard /> },
   ];
   return (

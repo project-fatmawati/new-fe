@@ -34,9 +34,9 @@ function App() {
 
           <Route path="/Dashboard" element={<Layout />}>
             <Route index element={<Dashboard />} />
-            <Route path="Riwayat" element={<RiwayatTransaksi />} />
-            <Route path="Akun" element={<PengaturanAkun />} />
-            <Route path="Event" element={<Event />} />
+            <Route path="/Dashboard/Riwayat" element={<RiwayatTransaksi />} />
+            <Route path="/Dashboard/Akun" element={<PengaturanAkun />} />
+            <Route path="/Dashboard/Event" element={<Event />} />
           </Route>
 
           <Route path="/tentang" element={<AboutPage />} />
