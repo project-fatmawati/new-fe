@@ -20,6 +20,7 @@ import AboutPage from "./pages/AboutPage";
 import Footer from "./components/Footer";
 import MembershipPage from './pages/MembershipPage'
 import PaymentPage from './pages/PaymentPage'
+import StylishShield from "./pages/StylishShield";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/tentang" element={<AboutPage />} />
           <Route path="/membership" element={<MembershipPage />}/>
           <Route path="/paymentPage" element={<PaymentPage/>}/>
+          <Route path="/stylishShield" element={<StylishShield/>}/>
           
 
           {/* Routes untuk Dashboard */}
