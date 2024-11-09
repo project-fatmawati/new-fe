@@ -10,7 +10,7 @@ import { AuthProvider } from "./context/AuthContext";
 import Login from "./pages/Login";
 import Daftar from "./pages/Register";
 import Navbar from "./components/Navbar";
-import Layout from "./components/Layout";
+import LayoutDashboard from './components/LayoutDashboard'
 import Dashboard from "./pages/Dashboard";
 import RiwayatTransaksi from "./pages/RiwayatTransaksi";
 import PengaturanAkun from "./pages/PengaturanAkun";
@@ -18,6 +18,8 @@ import Event from "./pages/Event";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import Footer from "./components/Footer";
+import MembershipPage from './pages/MembershipPage'
+import PaymentPage from './pages/PaymentPage'
 
 function App() {
   return (
@@ -25,14 +27,17 @@ function App() {
       <div className="App">
         <Navbar />
         <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<HomePage />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Daftar" element={<Daftar />} />
-          <Route path="/" element={<HomePage />} />
           <Route path="/tentang" element={<AboutPage />} />
-
+          <Route path="/membership" element={<MembershipPage />}/>
+          <Route path="/paymentPage" element={<PaymentPage/>}/>
+          
 
           {/* Routes untuk Dashboard */}
-          <Route path="/Dashboard" element={<Layout />}>
+          <Route path="/Dashboard" element={<LayoutDashboard />}>
             <Route index element={<Dashboard />} />
             <Route path="/Dashboard/Riwayat" element={<RiwayatTransaksi />} />
             <Route path="/Dashboard/Akun" element={<PengaturanAkun />} />

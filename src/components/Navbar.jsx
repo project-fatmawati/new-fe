@@ -26,15 +26,16 @@ function Navbar() {
     };
   }, []);
 
+
   return (
     <nav className="bg-white px-4 py-3 shadow-md font-sans relative">
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/">
           <img src={Logo} alt="BarterStyle Logo" className="h-12" />
         </Link>
-        <div className="flex items-center space-x-6 hidden md:flex">
+        <div className="flex items-center space-x-6 hidden md:flex gap-2">
           <Link to="/" className="text-black font-bold text-lg hover:text-teal-700">Home</Link>
-          <Link to="/katalog" className="text-black font-bold text-lg hover:text-teal-700">Katalog</Link>
+          <Link to="/katalog" className="text-black font-bold text-lg hover:text-teal-700 relative">Katalog</Link>
           <Link to="/informasi" className="text-black font-bold text-lg hover:text-teal-700">Informasi</Link>
           <Link to="/tentang" className="text-black font-bold text-lg hover:text-teal-700">Tentang Kami</Link>
           {isLoggedIn ? (
