@@ -49,7 +49,6 @@ function Register() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
-      <Navbar />
       <div className="flex-grow flex items-center justify-center py-12">
         <div className="w-full max-w-md p-6 bg-white shadow-md rounded-lg">
           {/* Signup Form */}

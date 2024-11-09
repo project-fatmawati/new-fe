@@ -5,7 +5,6 @@ import Katalog from './pages/Katalog'
 import DetailProduk from './pages/DetailProduk'
 import Cart from './pages/Cart'
 import Payment from './pages/Payment';
-import Homepage from './pages/HomePage'
 import Profile from './pages/Profile'
 import ChallengeDetail from './pages/ChallengeDetail'
 import { AuthProvider } from './context/AuthContext';
@@ -14,7 +13,7 @@ import { AuthProvider } from './context/AuthContext';
 import Login from "./pages/Login";
 import Daftar from "./pages/Register";
 // import LandingPage from './pages/LandingPage';
-// import Navbar from './components/Navbar';
+import Navbar from './components/Navbar';
 import Layout from './components/Layout';
 import Dashboard from './components/Dashboard';
 import RiwayatTransaksi from './pages/RiwayatTransaksi'
@@ -22,12 +21,14 @@ import PengaturanAkun from './pages/PengaturanAkun'
 import Event from './pages/Event'
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <AuthProvider>
-      {/* <Router> */}
-        <Routes>
+      <div className="App">
+        <Navbar/>
+      <Routes>
         <Route path="/Dashboard" element={<Layout/>}>
           <Route index element={<Dashboard/>}/>
           <Route path="Riwayat" element={<RiwayatTransaksi/>}/>
@@ -49,7 +50,10 @@ function App() {
           <Route path='/ChallengeDetail' element = {<ChallengeDetail/>}/>
           <Route path='/tentang' element = {<AboutPage/>}/>
         </Routes>
-      {/* </Router> */}
+        <Footer/>
+      </div>
+
+
 
       </AuthProvider>
 

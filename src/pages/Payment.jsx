@@ -9,8 +9,6 @@ import shopeepay from "../assets/shopeepay.png";
 import visaLogo from "../assets/visaLogo.png";
 import masterCard from "../assets/masterCard.png";
 import PopupPayment from "../components/PopupPayment";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 function Payment() {
   // const [paymentMethod, setPaymentMethod] = useState('');
@@ -28,7 +26,6 @@ function Payment() {
 
   return (
     <div>
-      <Navbar />
       <h1 className="text-center p-[80px] font-medium text-4xl bg-cyan">
         {" "}
         Hello, Rika Kamila!
@@ -162,7 +159,6 @@ function Payment() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

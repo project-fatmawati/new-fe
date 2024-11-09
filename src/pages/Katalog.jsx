@@ -2,14 +2,11 @@ import React from "react";
 import SidebarFilter from "../components/SidebarFilter";
 import ListKatalog from "../components/ListKatalog";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 // import LeftSide from "../components/LeftSide";
 
 function Katalog() {
   return (
     <>
-      <Navbar />
       <div className="w-full flex justify-center p-[80px] bg-cyan">
         <h1 className="text-xl">
           <Link to={`/`}>Home</Link> / Katalog
@@ -26,7 +23,6 @@ function Katalog() {
           </div>
         </div>
       </div>
-      <Footer/>
 
     </>
   );

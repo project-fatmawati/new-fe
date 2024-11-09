@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 function DetailProduk() {
   const location = useLocation();
@@ -10,7 +8,6 @@ function DetailProduk() {
 
   return (
     <>
-      <Navbar />
       <div className="w-full flex justify-center p-[80px] bg-cyan">
         <h1 className="text-xl">
           <Link to={`/`}>Home</Link> / Detail Product
@@ -53,7 +50,6 @@ function DetailProduk() {
           </p>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

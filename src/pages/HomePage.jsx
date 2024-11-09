@@ -3,14 +3,11 @@ import HeroSection from "../components/HeroSection";
 import FAQ from '../components/FAQ';
 import RecentProduct from "../components/RecentProduct";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 
 function HomePage() {
   return (
     <div>
-      <Navbar />
       <HeroSection />
       <Header
         title="Recent Products"
@@ -19,7 +16,6 @@ function HomePage() {
       <RecentProduct />
       <FAQ />
       <Newsletter/>
-      <Footer />
     </div>
   );
 }
