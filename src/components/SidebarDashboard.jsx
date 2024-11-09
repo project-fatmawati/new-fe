@@ -26,7 +26,7 @@ function SidebarDashboard() {
     { id: 6, path: "/Logout", name: "Logout", icon: <MdDashboard /> },
   ];
   return (
-    <div className=" w-16 md:w-56 fixed lef-0 top-0 z-10 h-screen border-r pt-8  bg-white ">
+    <div className=" w-16 md:w-56 fixed pt-8  bg-white ">
       <div className="flex justify-center">
         <img src={logo} alt="logo" className="w-30 hidden md:flex px-3" />
         <img src={logo} alt="logo" className="w-10 flex md:hidden" />
