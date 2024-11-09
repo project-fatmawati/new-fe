@@ -23,18 +23,18 @@ function SidebarDashboard() {
     { id: 3, path: "/Dashboard/Medali", name: "My Medali", icon: <MdDashboard /> },
     { id: 4, path: "/Dashboard/Event", name: "Event", icon: <MdDashboard /> },
     { id: 5, path: "/Dashboard/Akun", name: "Pengaturan Akun", icon: <MdDashboard /> },
-    { id: 6, path: "/Logout", name: "Logout", icon: <MdDashboard /> },
+    { id: 6, path: "/", name: "Logout", icon: <MdDashboard /> },
   ];
   return (
-    <div className=" w-16 md:w-56 pt-16 fixed bg-white">
-      <div className="flex-col">
+    <div className=" w-16 md:w-56 pt-8 bg-white">
+      {/* <div className="flex-col">
 
         <img src="user.png" alt="User" className="w-30 hidden md:flex px-3"/>
         <img src="user.png" alt="User"  className="w-10 flex md:hidden"/>
 
-        <h3 className="font-bold text-xl ml-3">Fatmawati</h3>
-      </div>
-      <ul className=" mt-8 space-y-6">
+        <h3 className="font-bold text-xl ml-2">Fatma</h3>
+      </div> */}
+      <ul className=" mt-8 space-y-6 ml-3">
         {SIDEBAR_LINKS.map((link, index) => (
          <li
          key={index}

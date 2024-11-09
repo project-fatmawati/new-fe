@@ -31,20 +31,24 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/Daftar" element={<Daftar />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="/tentang" element={<AboutPage />} />
+          <Route path="/ChallengeDetail" element={<ChallengeDetail />} />
 
+          {/* Routes untuk Dashboard */}
           <Route path="/Dashboard" element={<Layout />}>
             <Route index element={<Dashboard />} />
             <Route path="/Dashboard/Riwayat" element={<RiwayatTransaksi />} />
             <Route path="/Dashboard/Akun" element={<PengaturanAkun />} />
             <Route path="/Dashboard/Event" element={<Event />} />
+            <Route path="/Dashboard/Logout" element={<Event />} />
           </Route>
 
-          <Route path="/tentang" element={<AboutPage />} />
+          
           <Route path="/Katalog" element={<Katalog />} />
           <Route path="/DetailProduk" element={<DetailProduk />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/Payment" element={<Payment />} />
-          <Route path="/ChallengeDetail" element={<ChallengeDetail />} />
+          
 
         </Routes>
         <Footer />

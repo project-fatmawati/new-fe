@@ -5,9 +5,9 @@ function ProfileDetail() {
   return (
     <div className="container mx-auto p-5">
       <div className="py-5">
-        <h1 className="text-4xl font-bold">Detail Profil</h1>
+        <h1 className="text-3xl font-bold">Detail Profil</h1>
       </div>
-      <form className="container mx-auto">
+      <form className="container mx-auto max-w-lg">
         <div className="flex flex-col py-5">
           <label
             htmlFor="profilePic"
@@ -200,7 +200,7 @@ function ProfileDetail() {
         {/* ... */}
         <button
           type="submit"
-          className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="mt-4 bg-teal hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Simpan
         </button>
