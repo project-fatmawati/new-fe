@@ -1,14 +1,10 @@
 import React from "react";
-// import ChallengeStats from '../components/ChallengeStats';
-import styles from "../pages/ChallengeDetail.module.css";
 
-function ChallengeDetail() {
-  const handleStartChallenge = () => {
-    alert("Tantangan telah dimulai!");
-  };
+function ChallengeDetail({ showModal, handleCloseModal }) {
 
   return (
     <div className="{styles.challenge-container}">
+      {showModal && (
       <main className="{styles.challenge-main-content}">
         <section className="{styles.challenge-detail}">
           <h2>Tantangan 7 Hari Mengurangi Sampah Fashion</h2>
@@ -30,17 +26,15 @@ function ChallengeDetail() {
             </p>
           </div>
           <button
-            className="{styles.challenge-button}"
-            onClick={handleStartChallenge}
-          >
-            Ikuti Tantangan
-          </button>
+              className="mt-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+              onClick={handleCloseModal}
+            >
+              Tutup
+            </button>
         </section>
       </main>
-
-      {/* <ChallengeStats /> */}
+)}
     </div>
   );
 }
-
 export default ChallengeDetail;

@@ -49,16 +49,6 @@ const RecentProduct = () => {
   return (
     <div>
       <div className="container mx-auto pb-[50px]">
-        {/* Header section */}
-        {/* <div className="text-center mb-10 max-w-[600px] mx-auto">
-          <h1 data-aos="fade-up" className="text-4xl font-bold pb-2">
-            Recent Products
-          </h1>
-          <p data-aos="fade-up" className="text-xl text-black pt-5">
-            Ambillah Bagian dari Gerakan Sustainability Fahion dengan Menukarkan Pakaian Anda Sekarang
-          </p>
-        </div> */}
-        {/* Body section */}
         <div>
           <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-5 pb-5">
             {/* card section */}

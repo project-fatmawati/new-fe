@@ -7,14 +7,11 @@ import Cart from "./pages/Cart";
 import Payment from "./pages/Payment";
 import ChallengeDetail from "./pages/ChallengeDetail";
 import { AuthProvider } from "./context/AuthContext";
-// import Footer from "./component/Footer";
-// import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import Daftar from "./pages/Register";
-// import LandingPage from './pages/LandingPage';
 import Navbar from "./components/Navbar";
 import Layout from "./components/Layout";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./pages/Dashboard";
 import RiwayatTransaksi from "./pages/RiwayatTransaksi";
 import PengaturanAkun from "./pages/PengaturanAkun";
 import Event from "./pages/Event";
@@ -32,7 +29,7 @@ function App() {
           <Route path="/Daftar" element={<Daftar />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/tentang" element={<AboutPage />} />
-          <Route path="/ChallengeDetail" element={<ChallengeDetail />} />
+
 
           {/* Routes untuk Dashboard */}
           <Route path="/Dashboard" element={<Layout />}>
@@ -41,6 +38,7 @@ function App() {
             <Route path="/Dashboard/Akun" element={<PengaturanAkun />} />
             <Route path="/Dashboard/Event" element={<Event />} />
             <Route path="/Dashboard/Logout" element={<Event />} />
+            <Route path="/Dashboard/ChallengeDetail" element={<ChallengeDetail />} />
           </Route>
 
           
