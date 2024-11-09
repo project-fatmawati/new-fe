@@ -5,7 +5,6 @@ import Katalog from "./pages/Katalog";
 import DetailProduk from "./pages/DetailProduk";
 import Cart from "./pages/Cart";
 import Payment from "./pages/Payment";
-import Profile from "./pages/Profile";
 import ChallengeDetail from "./pages/ChallengeDetail";
 import { AuthProvider } from "./context/AuthContext";
 // import Footer from "./component/Footer";
@@ -32,7 +31,6 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/Daftar" element={<Daftar />} />
           <Route path="/" element={<HomePage />} />
-          <Route path="/Profile" element={<Profile />} />
 
           <Route path="/Dashboard" element={<Layout />}>
             <Route index element={<Dashboard />} />

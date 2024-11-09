@@ -26,10 +26,13 @@ function SidebarDashboard() {
     { id: 6, path: "/Logout", name: "Logout", icon: <MdDashboard /> },
   ];
   return (
-    <div className=" w-16 md:w-56 fixed pt-8  bg-white ">
-      <div className="flex justify-center">
-        <img src={logo} alt="logo" className="w-30 hidden md:flex px-3" />
-        <img src={logo} alt="logo" className="w-10 flex md:hidden" />
+    <div className=" w-16 md:w-56 pt-16 fixed bg-white">
+      <div className="flex-col">
+
+        <img src="user.png" alt="User" className="w-30 hidden md:flex px-3"/>
+        <img src="user.png" alt="User"  className="w-10 flex md:hidden"/>
+
+        <h3 className="font-bold text-xl ml-3">Fatmawati</h3>
       </div>
       <ul className=" mt-8 space-y-6">
         {SIDEBAR_LINKS.map((link, index) => (
