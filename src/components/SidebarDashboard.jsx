@@ -1,7 +1,11 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MdDashboard } from "react-icons/md";
-import logo from "../assets/barterstyle-logo.svg";
+import { CgProfile } from "react-icons/cg";
+import { MdWorkHistory } from "react-icons/md";
+import { FaCalendarAlt } from "react-icons/fa";
+import { FaMedal } from "react-icons/fa";
+import { FaWindowClose } from "react-icons/fa";
 
 function SidebarDashboard() {
   const navigate = useNavigate();
@@ -18,12 +22,12 @@ function SidebarDashboard() {
       id: 2,
       path: "/Dashboard/Riwayat",
       name: "Riwayat Transaksi",
-      icon: <MdDashboard />,
+      icon: <MdWorkHistory />,
     },
-    { id: 3, path: "/Dashboard/Medali", name: "My Medali", icon: <MdDashboard /> },
-    { id: 4, path: "/Dashboard/Event", name: "Event", icon: <MdDashboard /> },
-    { id: 5, path: "/Dashboard/Akun", name: "Pengaturan Akun", icon: <MdDashboard /> },
-    { id: 6, path: "/", name: "Logout", icon: <MdDashboard /> },
+    { id: 3, path: "/Dashboard/Medali", name: "My Medali", icon: <FaMedal /> },
+    { id: 4, path: "/Dashboard/Event", name: "Event", icon: <FaCalendarAlt />},
+    { id: 5, path: "/Dashboard/Akun", name: "Pengaturan Akun", icon: <CgProfile /> },
+    { id: 6, path: "/", name: "Logout", icon: <FaWindowClose /> },
   ];
   return (
     <div className=" w-16 md:w-56 pt-8 bg-white">
@@ -42,12 +46,12 @@ function SidebarDashboard() {
        >
          {link.path === '#logout' ? (
            <button onClick={handleLogout} className="flex items-center md:space-x-5">
-             <span className="md:hidden">{link.icon} </span>
+             <span className="md:hidden ">{link.icon} </span>
              <span className="text-xl hidden md:flex">{link.name}</span>
            </button>
          ) : (
            <Link to={link.path} className="flex items-center md:space-x-5">
-             <span className="md:hidden">{link.icon} </span>
+             <span className="md:hidden text-teal">{link.icon} </span>
              <span className="text-xl hidden md:flex">{link.name}</span>
            </Link>
          )}

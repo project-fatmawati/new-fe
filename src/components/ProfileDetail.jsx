@@ -3,208 +3,109 @@ import Logo from '../assets/barterstyle-logo.svg'
 
 function ProfileDetail() {
   return (
-    <div className="container mx-auto p-5">
+    <div className="container mx-auto p-5 pb-40">
       <div className="py-5">
         <h1 className="text-3xl font-bold">Detail Profil</h1>
       </div>
-      <form className="container mx-auto max-w-lg">
-        <div className="flex flex-col py-5">
-          <label
-            htmlFor="profilePic"
-            className=" font-medium text-black text-xl"
-          >
-            Foto Profil
-          </label>
-          <div className="relative mt-1">
-            <img
-              id="profilePicPreview"
-              src={Logo}
-              alt="Preview Foto Profil"
-              className="rounded-full h-20 w-20 object-cover"
-            />
-            <input
-              type="file"
-              id="profilePic"
-              className="absolute inset-0 opacity-0 cursor-pointer"
-              onChange={(event) => {
-                const reader = new FileReader();
-                reader.onload = () => {
-                  document.getElementById("profilePicPreview").src =
-                    reader.result;
-                };
-                reader.readAsDataURL(event.target.files[0]);
-              }}
-            />
-          </div>
-        </div>
-        {/* Sisanya input-input lainnya dengan struktur yang sama */}
-        <div className="flex flex-col py-5">
-          <label
-            htmlFor="birthPlace"
-            className=" block font-medium text-black text-xl"
-          >
-            Nama lengkap
-          </label>
-          <input
-            type="text"
-            id="birthPlace"
-            name="birthPlace"
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
-        </div>
 
-      
-        <div className="flex flex-col py-5">
-          <label
-            htmlFor="gender"
-            className=" font-medium text-black text-xl"
-          >
-            Jenis Kelamin
-          </label>
-          <div className="mt-1">
-            <label className="inline-flex items-center text-black text-xl">
-              <input
-                type="radio"
-                className="form-radio"
-                name="gender"
-                value="laki-laki"
-              />
-              <span className="ml-2">Laki-laki</span>
-            </label>
-            <label className="inline-flex  ml-6 items-center text-black text-xl">
-              <input
-                type="radio"
-                className="form-radio"
-                name="gender"
-                value="perempuan"
-              />
-              <span className="ml-2">Perempuan</span>
+    <div className="container mx-auto">
+      <form className="w-full max-w-lg">
+
+      <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="inline-full-name">
+              Nama Lengkap
             </label>
           </div>
+          <div className="md:w-2/3">
+            <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="Masukkan nama lengkap" />
+          </div>
         </div>
-        {/* Sisanya input-input lainnya dengan struktur yang sama */}
-        <div className="flex flex-col py-5">
-          <label
-            htmlFor="email"
-            className=" block font-medium text-black text-xl"
-          >
-            Alamat Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
-        </div>
-        <div className="flex flex-col py-5">
-          <label
-            htmlFor="number"
-            className=" block font-medium text-black text-xl"
-          >
-            Nomor Whatsapp
-          </label>
-          <input
-            type="number"
-            id="number"
-            name="number"
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
-        </div>
-        
 
-        <div className="flex flex-col py-5">
-          <label
-            htmlFor="birthPlace"
-            className=" block font-medium text-black text-xl"
-          >
-            Tempat Lahir
-          </label>
-          <input
-            type="text"
-            id="birthPlace"
-            name="birthPlace"
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
+        {/* Jenis Kelamin */}
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+ htmlFor="gender">
+              Jenis Kelamin
+            </label>
+          </div>
+          <div className="md:w-2/3">
+            <select id="gender" name="gender" className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500">
+              <option value="">Pilih</option>
+              <option value="laki-laki">Laki-laki</option>
+              <option value="perempuan">Perempuan</option>
+            </select>
+          </div>
+        </div> 
+
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="inline-full-name">
+              Alamat Email
+            </label>
+          </div>
+          <div className="md:w-2/3">
+            <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="Alamat Email" />
+          </div>
         </div>
-        <div className="flex flex-col py-5">
-          <label
-            htmlFor="birthDate"
-            className=" block font-medium text-black text-xl"
-          >
-            Tanggal Lahir
-          </label>
-          <input
-            type="date"
-            id="birthDate"
-            name="birthDate"
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
+
+
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="inline-full-name">
+              Nomor Whatsapp
+            </label>
+          </div>
+          <div className="md:w-2/3">
+            <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="Nomor Whatsapp" />
+          </div>
         </div>
-        <div className="flex flex-col py-5">
-          <label
-            htmlFor="address"
-            className=" block font-medium text-black text-xl"
-          >
-            Alamat
-          </label>
-          <textarea
-            id="address"
-            name="address"
-            rows="4"
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          ></textarea>
+
+
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="inline-full-name">
+              Tempat Lahir
+            </label>
+          </div>
+          <div className="md:w-2/3">
+            <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="Tempat Lahir" />
+          </div>
         </div>
-        <div className="flex flex-col py-5">
-          <label
-            htmlFor="province"
-            className=" block font-medium text-black text-xl"
-          >
-            Provinsi
-          </label>
-          <input
-            type="text"
-            id="province"
-            name="province"
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
+
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="inline-full-name">
+              Tanggal Lahir
+            </label>
+          </div>
+          <div className="md:w-2/3">
+            <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="Tanggal Lahir" />
+          </div>
         </div>
-        <div className="flex flex-col py-5">
-          <label
-            htmlFor="city"
-            className=" block font-medium text-black text-xl"
-          >
-            Kota/Kabupaten
-          </label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="inline-full-name">
+              Alamat Tinggal
+            </label>
+          </div>
+          <div className="md:w-2/3">
+            <textarea className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-10 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="text" placeholder="Alamat Tempat Tinggal" />
+          </div>
         </div>
-        <div className="flex flex-col py-5">
-          <label
-            htmlFor="postalCode"
-            className=" block font-medium text-black text-xl"
-          >
-            Kode Pos
-          </label>
-          <input
-            type="text"
-            id="postalCode"
-            name="postalCode"
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-          />
+
+        {/* Tambahkan input lain sesuai kebutuhan */}
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3"></div>
+          <div className="md:w-2/3">
+            <button className="bg-teal hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+              Submit
+            </button>
+          </div>
         </div>
-        {/* ... */}
-        <button
-          type="submit"
-          className="mt-4 bg-teal hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Simpan
-        </button>
       </form>
+      </div>
     </div>
   );
 }
