@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Logo from '../assets/Logo-nav.png';
+// import Logo from '../assets/Logo-nav.png';
 import Icon from '../assets/clothes-icon.png'; // Pastikan path ini benar
 
 
-function Navbar() {
-  return (
-    <nav className="bg-white px-4 py-3 shadow-md font-sans relative">
-      <div className="container mx-auto flex items-center justify-between">
-        <img src={Logo} alt="BarterStyle Logo" className="h-12" />
-      </div>
-    </nav>
-  );
-}
+// function Navbar() {
+//   return (
+//     <nav className="bg-white px-4 py-3 shadow-md font-sans relative">
+//       <div className="container mx-auto flex items-center justify-between">
+//         <img src={Logo} alt="BarterStyle Logo" className="h-12" />
+//       </div>
+//     </nav>
+//   );
+// }
 
 function Register() {
   const [firstName, setFirstName] = useState('');
