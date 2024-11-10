@@ -1,4 +1,4 @@
-import React from 'react';
+
 import HeroSection from "../components/HeroSection";
 import ProductRecommendation from "../components/ProductRecommendation";
 import FAQ from "../components/FAQ";

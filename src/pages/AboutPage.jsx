@@ -1,4 +1,3 @@
-import React from "react";
 // import { useRoutes } from 'react-router-dom';
 import About from "../components/About";
 import DropPoints from "../components/DropPoints";

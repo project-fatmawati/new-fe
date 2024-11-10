@@ -1,4 +1,4 @@
-import React from "react";
+
 import SidebarFilter from "../components/SidebarFilter";
 import ListKatalog from "../components/ListKatalog";
 import { Link } from "react-router-dom";

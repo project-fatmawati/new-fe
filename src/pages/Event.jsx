@@ -1,4 +1,4 @@
-import React from 'react'
+
 import ListEvent from '../components/ListEvent'
 
 function Event() {

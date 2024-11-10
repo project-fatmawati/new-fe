@@ -1,4 +1,4 @@
-import React from 'react'
+
 import ProfileDetail from '../components/ProfileDetail'
 
 function PengaturanAkun() {

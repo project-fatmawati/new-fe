@@ -1,5 +1,3 @@
-import React from 'react'
-
 import TransactionHistory from '../components/TransactionHistory'
 
 function RiwayatTransaksi() {

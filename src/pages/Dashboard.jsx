@@ -1,7 +1,5 @@
-import React from "react";
 import { useNavigate } from "react-router-dom"; 
 import challengeIcon from '../assets/clothes-icon.png';
-import ChallengeDetail from "../pages/ChallengeDetail"
 
 
 const Dashboard = () => {
