@@ -1,11 +1,11 @@
-import React from "react";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Katalog from "./pages/Katalog";
 import DetailProduk from "./pages/DetailProduk";
 import Cart from "./pages/Cart";
 import Payment from "./pages/Payment";
-import ChallengeDetail from "./pages/ChallengeDetail";
+// import ChallengeDetail from "./pages/ChallengeDetail";
 import { AuthProvider } from "./context/AuthContext";
 import Login from "./pages/Login";
 import Daftar from "./pages/Register";
@@ -45,7 +45,7 @@ function App() {
             <Route path="/Dashboard/Akun" element={<PengaturanAkun />} />
             <Route path="/Dashboard/Event" element={<Event />} />
             <Route path="/Dashboard/Logout" element={<Event />} />
-            <Route path="/Dashboard/ChallengeDetail" element={<ChallengeDetail />} />
+            {/* <Route path="/Dashboard/ChallengeDetail" element={<ChallengeDetail />} /> */}
           </Route>
 
           
