@@ -18,7 +18,7 @@ import Event from "./pages/Event";
 import Landingpage from "./pages/Landingpage";
 import About from "./pages/About";
 import Footer from "./components/Landingpage/Footer";
-import MembershipPage from './pages/MembershipPage'
+import MembershipPage from './pages/Membership/MembershipPage'
 import PaymentMember from './pages/PaymentMember/PaymentMember'
 import StylishShield from "./pages/StylishShield";
 

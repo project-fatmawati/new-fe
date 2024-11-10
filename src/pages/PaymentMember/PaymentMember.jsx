@@ -27,22 +27,22 @@ function PaymentMember() {
   };
 
   return (
-    <div className="payment-page">
+    <div className={styles.paymentPage}>
       <h1>Pembayaran</h1>
       <p>Anda sedang memilih paket {plan}.</p>
       <p>Silakan pilih metode pembayaran di bawah ini:</p>
 
       {/* Metode pembayaran */}
-      <div className="payment-methods">
+      <div className={styles.paymentMethods}>
         <button onClick={handlePaymentSuccess}>Kartu Kredit</button>
         <button onClick={handleBankTransfer}>Transfer Bank</button>
       </div>
 
       {/* Conditional rendering untuk tombol bank di atas tombol "Batal" */}
       {showBankOptions && (
-        <div className="bank-options">
+        <div className={styles.bankOptions}>
           <h3>Pilih Bank Anda</h3>
-          <div className="bank-buttons">
+          <div className={styles.bankButtons}>
             <button onClick={() => handleSelectBank('Bank BCA')}>Bank BCA</button>
             <button onClick={() => handleSelectBank('Bank Mandiri')}>Bank Mandiri</button>
             <button onClick={() => handleSelectBank('Bank BNI')}>Bank BNI</button>
@@ -53,7 +53,7 @@ function PaymentMember() {
       )}
 
       {/* Tombol Batal */}
-      <div className="payment-methods">
+      <div className={styles.paymentMethods}>
         <button onClick={handlePaymentCancel}>Batal</button>
       </div>
     </div>

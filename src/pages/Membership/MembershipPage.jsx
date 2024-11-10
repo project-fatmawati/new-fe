@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';  // Pastikan ini ada
-import style from './membershipPage.module.css'
+import styles from './membershipPage.module.css'
 
 
 function MembershipPage() {
@@ -11,13 +11,13 @@ function MembershipPage() {
   };
 
   return (
-    <div className="membership-page">
+    <div className={styles.membershipPage}>
       <h1>Member BarterStyle</h1>
       <p>MemberStyle menyediakan pilihan jenis membership, Member Gratis dan Member Pro. Adapun ketentuannya sebagai berikut :</p>
       
-      <div className="membership-info">
+      <div className={styles.membershipInfo}>
         {/* Member Gratis Section */}
-        <div className="member-free">
+        <div className={styles.memberFree}>
           <h2>Member Gratis</h2>
           <p>Member gratis ialah pengguna yang sudah memiliki akun di BarterStyle.</p>
           <h3>Keuntungan:</h3>
@@ -34,7 +34,7 @@ function MembershipPage() {
         </div>
 
         {/* Member Pro Section */}
-        <div className="member-pro">
+        <div className={styles.memberPro}>
           <h2>Member Pro BarterStyle</h2>
           <p>Member Pro ialah pengguna yang sudah memiliki akun dan melakukan pendaftaran sebagai member pro.</p>
           <h3>Keuntungan:</h3>
@@ -52,8 +52,8 @@ function MembershipPage() {
       </div>
 
       {/* Membership Options */}
-      <div className="membership-options">
-        <div className="membership-card">
+      <div className={styles.membershipOptions}>
+        <div className={styles.membershipCard}>
           <h3>Member Pro 3 Bulan</h3>
           <p>Rp. 60.000</p>
           <ul>
@@ -66,7 +66,7 @@ function MembershipPage() {
           <button onClick={() => handleJoinClick('3 Bulan')}>Join Member</button>
         </div>
         
-        <div className="membership-card">
+        <div className={styles.membershipCard}>
           <h3>Member Pro 6 Bulan</h3>
           <p>Rp. 100.000</p>
           <ul>
