@@ -1,4 +1,4 @@
-import TransactionHistory from '../components/TransactionHistory'
+import TransactionHistory from '../components/Dashboard/TransactionHistory'
 
 function RiwayatTransaksi() {
   return (

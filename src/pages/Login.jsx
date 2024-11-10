@@ -1,16 +1,5 @@
 import { useState } from "react";
-// import Logo from "../assets/Logo-nav.png";
 import Icon from "../assets/clothes-icon.png";
-
-// function Navbar() {
-//   return (
-//     <nav className="bg-white px-4 py-3 shadow-md font-sans relative">
-//       <div className="container mx-auto flex items-center justify-between">
-//         <img src={Logo} alt="BarterStyle Logo" className="h-12" />
-//       </div>
-//     </nav>
-//   );
-// }
 
 function Login() {
   const [email, setEmail] = useState("");

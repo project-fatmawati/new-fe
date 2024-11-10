@@ -1,5 +1,5 @@
 import React from "react";
-import shirt from "../assets/shirt.png";
+import shirt from "../../assets/shirt.png";
 
 const CartItem = ({ item }) => {
   return (

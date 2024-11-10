@@ -1,13 +1,12 @@
 import React from "react";
-// import React, { useState } from 'react';
-import bcaLogo from "../assets/bcaLogo.png";
-import briLogo from "../assets/briLogo.png";
-import bniLogo from "../assets/bniLogo.png";
-import mandiriLogo from "../assets/mandiriLogo.png";
-import danaLogo from "../assets/danaLogo.png";
-import shopeepay from "../assets/shopeepay.png";
-import visaLogo from "../assets/visaLogo.png";
-import masterCard from "../assets/masterCard.png";
+import bcaLogo from "../../assets/bcaLogo.png";
+import briLogo from "../../assets/briLogo.png";
+import bniLogo from "../../assets/bniLogo.png";
+import mandiriLogo from "../../assets/mandiriLogo.png";
+import danaLogo from "../../assets/danaLogo.png";
+import shopeepay from "../../assets/shopeepay.png";
+import visaLogo from "../../assets/visaLogo.png";
+import masterCard from "../../assets/masterCard.png";
 
 function BillingForm() {
   // const [paymentMethod, setPaymentMethod] = useState('');

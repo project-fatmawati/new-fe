@@ -1,8 +1,8 @@
 import React from 'react';
-import TransactionCard from './TransactionCard'
-import Img1 from "../assets/shirt.png"
-import Img2 from "../assets/shirt2.png"
-import Img3 from "../assets/shirt3.png"
+import TransactionCard from '../Transaksi/TransactionCard'
+import Img1 from "../../assets/shirt.png"
+import Img2 from "../../assets/shirt2.png"
+import Img3 from "../../assets/shirt3.png"
 
 function TransactionHistory() {
   const transactions = [

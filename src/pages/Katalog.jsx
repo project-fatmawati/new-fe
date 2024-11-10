@@ -1,6 +1,6 @@
 
-import SidebarFilter from "../components/SidebarFilter";
-import ListKatalog from "../components/ListKatalog";
+import SidebarFilter from "../components/Katalog/SidebarFilter";
+import ListKatalog from "../components/Katalog/ListKatalog";
 import { Link } from "react-router-dom";
 // import LeftSide from "../components/LeftSide";
 

@@ -1,4 +1,4 @@
-import iconsuccess from "../assets/icons-success.gif";
+import iconsuccess from "../../assets/icons-success.gif";
 
 function PopupPayment({ showModal, handleCloseModal }) {
   return (

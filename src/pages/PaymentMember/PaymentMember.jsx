@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import styles from './PaymentPage.module.css'
+import styles from './PaymentMember.module.css'
 
 
-function PaymentPage() {
+function PaymentMember() {
   const { plan } = useParams(); // Dapatkan plan dari URL
   const navigate = useNavigate();
   const [showBankOptions, setShowBankOptions] = useState(false);
@@ -60,5 +60,5 @@ function PaymentPage() {
   );
 }
 
-export default PaymentPage;
+export default PaymentMember;
 

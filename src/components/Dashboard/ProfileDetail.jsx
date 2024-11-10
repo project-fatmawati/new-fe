@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from '../assets/barterstyle-logo.svg'
 
 function ProfileDetail() {
   return (
