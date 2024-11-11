@@ -1,20 +1,7 @@
 import React from "react";
-import { useOrder } from '../../context/OrderContext'
 
 
 const CartItem = ({product}) => {
-
-  const { removeFromCart } = useOrder();
-
-
-  const handleRemove = () => {
-    removeFromCart(product.id);
-  };
-
-  // Handle case where product might be undefined (for error handling)
-  if (!product) {
-    return null;
-  }
 
   return (
     <tr>

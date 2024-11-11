@@ -1,18 +1,22 @@
 import CartItem from "../components/Katalog/CartItem";
 import { Link } from "react-router-dom";
+import { useOrder } from '../context/OrderContext'
 
 const Cart = () => {
-  const cartItems = [
-    {
-      id: 1,
-      name: "Baju Olahraga Gym Senam Zumba Yoga Wanita Kaos",
-      price: 0,
-      quantity: 1,
-      color: "Grey",
-      size: "M",
-    },
-    // Add other cart items here
-  ];
+  // const cartItems = [
+  //   {
+  //     id: 1,
+  //     name: "Baju Olahraga Gym Senam Zumba Yoga Wanita Kaos",
+  //     price: 0,
+  //     quantity: 1,
+  //     color: "Grey",
+  //     size: "M",
+  //   },
+
+    
+  //   // Add other cart items here
+  // ];
+  const { order } = useOrder();
 
   return (
     <>
@@ -37,9 +41,9 @@ const Cart = () => {
               </tr>
             </thead>
             <tbody>
-              {cartItems.map((item) => (
-                <CartItem key={item.id} item={item} />
-              ))}
+            {order.products.map((product) => (
+            <CartItem key={product.id} product={product} />
+          ))}
             </tbody>
           </table>
           <div className="mt-8 sm:mt-0 w-full sm:w-1/2 border p-5">
