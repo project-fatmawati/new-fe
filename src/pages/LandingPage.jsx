@@ -4,6 +4,7 @@ import RecentProduct from "../components/Landingpage/RecentProduct";
 import Header from "../components/Layout/Header";
 import Newsletter from "../components/Landingpage/Newsletter";
 import {ProductProvider} from '../context/ProductContext'
+import ReviewSection from "../components/Landingpage/ReviewSection";
 
 function HomePage() {
   return (
@@ -15,6 +16,7 @@ function HomePage() {
           description="Ambillah Bagian dari Gerakan Sustainability Fahion dengan Menukarkan Pakaian Anda Sekarang"
         />
         <RecentProduct />
+        <ReviewSection/>
         <FAQ />
         <Newsletter />
       </div>
