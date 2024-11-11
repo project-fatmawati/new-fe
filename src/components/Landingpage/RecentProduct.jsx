@@ -3,7 +3,6 @@ import Img1 from "../../assets/shirt.png"
 import Img2 from "../../assets/shirt2.png"
 import Img3 from "../../assets/shirt3.png"
 import { Link } from "react-router-dom";
-
 import { FaStar } from "react-icons/fa6";
 
 const ProductsData = [
@@ -37,7 +36,7 @@ const ProductsData = [
   },
   {
     id: 2,
-    img: Img2,
+    img: "https://i.ibb.co.com/GJ5n2hm/Image-from-Google-Drive.png",
     title: "Printed shirt",
     description:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
