@@ -24,7 +24,7 @@ function SidebarDashboard() {
       name: "Riwayat Transaksi",
       icon: <MdWorkHistory />,
     },
-    { id: 3, path: "/Dashboard/Medali", name: "My Medali", icon: <FaMedal /> },
+    // { id: 3, path: "/Dashboard/Medali", name: "My Medali", icon: <FaMedal /> },
     { id: 4, path: "/Dashboard/Event", name: "Event", icon: <FaCalendarAlt />},
     { id: 5, path: "/Dashboard/Akun", name: "Pengaturan Akun", icon: <CgProfile /> },
     { id: 6, path: "/", name: "Logout", icon: <FaWindowClose /> },

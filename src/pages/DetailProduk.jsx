@@ -2,14 +2,40 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useProduct } from "../context/ProductContext";
 import { useState, useEffect } from 'react';
+import { useOrder } from '../context/OrderContext'
+import { useNavigate } from "react-router-dom";
 
 function DetailProduk() {
   const { productId } = useParams();
   const { getProductById, productDetail } = useProduct();
+  const { addToCart} = useOrder();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getProductById(productId);
   }, [productId]);
+  
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    navigate(`/Cart`);
+  };
+
+  const toggleLike = (productId) => {
+    setOrder((prevState) => {
+      const newLikedProducts = new Set(prevState.likedProducts);
+      if (newLikedProducts.has(productId)) {
+        newLikedProducts.delete(productId);
+      } else {
+        newLikedProducts.add(productId);
+      }
+      return {
+        ...prevState,
+        likedProducts: [...newLikedProducts],
+      };
+    });
+  };
+
 
   return (
     <>
@@ -45,9 +71,9 @@ function DetailProduk() {
               </p>
               <div className="flex flex-col gap-4 mb-4">
                 <button className="w-[50%] py-4 bg-black hover:bg-mustard duration-300 text-white font-bold text-xl hover:text-black font-titleFont">
-                  <Link to="/Cart">Add to Cart</Link>
+                <Link to="/Cart" onClick={() => handleAddToCart(productDetail)}>Add to Cart</Link>
                 </button>
-                <button className="w-[50%] py-4 bg-teal-500 hover:bg-cyan duration-300 border text-black font-bold text-xl hover:text-black font-titleFont">
+                <button className="w-[50%] py-4 bg-teal-500 hover:bg-cyan duration-300 border text-black font-bold text-xl hover:text-black font-titleFont" onClick={() => toggleLike(productDetail.id)}>
                   Add to Wishlist
                 </button>
               </div>

@@ -3,6 +3,8 @@ import React, { createContext, useState, useEffect, useContext } from "react";
 const ProductContext = createContext ({
   products: [],
   getProductById: () => {},
+    productDetail: null,
+
 });
 
 
@@ -37,7 +39,6 @@ export function ProductProvider ({children}) {
       console.error(error);
     }
   };
-
 
 
   useEffect(() => {

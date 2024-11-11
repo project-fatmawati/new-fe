@@ -1,7 +1,6 @@
 import React from "react";
-// import { useState, useEffect } from "react";
 import { useProduct } from '../../context/ProductContext'
-import ProductCard from "./ProductCard"
+import ProductCard from './ProductCard'
 
 function ListKatalog() {
 

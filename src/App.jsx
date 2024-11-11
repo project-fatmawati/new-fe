@@ -21,11 +21,13 @@ import MembershipPage from "./pages/Membership/MembershipPage";
 import PaymentMember from "./pages/PaymentMember/PaymentMember";
 import StylishShield from "./pages/StylishShield";
 import { ProductProvider } from "./context/ProductContext";
+import { OrderProvider } from "./context/OrderContext";
 
 function App() {
   return (
     <AuthProvider>
       <ProductProvider>
+        <OrderProvider>
         <div className="App">
           <Navbar />
           <Routes>
@@ -55,6 +57,7 @@ function App() {
           </Routes>
           <Footer />
         </div>
+        </OrderProvider>
       </ProductProvider>
     </AuthProvider>
   );
