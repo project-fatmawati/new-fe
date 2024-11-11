@@ -33,9 +33,7 @@ const Cart = () => {
             <thead className=" bg-mustard text-xl">
               <tr>
                 <th className="py-2 px-4 text-left">Produk</th>
-                <th className="py-2 px-4 text-right">Harga</th>
                 <th className="py-2 px-4 text-center ">Qty</th>
-                <th className="py-2 px-4 text-right ">Subtotal</th>
               </tr>
             </thead>
             <tbody>
@@ -46,10 +44,6 @@ const Cart = () => {
           </table>
           <div className="mt-8 sm:mt-0 w-full sm:w-1/2 border p-5">
             <h2 className="text-xl font-bold mb-4">Total Keranjang</h2>
-            <div className="flex justify-between mb-2 text-lg">
-              <span className="font-bold">Subtotal</span>
-              <span>Rp. 0</span>
-            </div>
             <div className="flex justify-between mb-2 text-lg">
               <span className="font-bold">Transaction Fee</span>
               <span>Rp. 5.000</span>
