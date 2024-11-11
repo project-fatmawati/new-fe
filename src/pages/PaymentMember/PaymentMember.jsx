@@ -28,9 +28,8 @@ function PaymentMember() {
 
   return (
     <div className={styles.paymentPage}>
-      <h1>Pembayaran</h1>
-      <p>Anda sedang memilih paket {plan}.</p>
-      <p>Silakan pilih metode pembayaran di bawah ini:</p>
+      <h1 className="text-4xl pb-5">Pembayaran</h1>
+      <p className="text-2xl pb-5">Silakan pilih metode pembayaran di bawah ini:</p>
 
       {/* Metode pembayaran */}
       <div className={styles.paymentMethods}>

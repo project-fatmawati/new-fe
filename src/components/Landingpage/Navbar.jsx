@@ -36,7 +36,7 @@ function Navbar() {
         <div className="flex items-center space-x-6 hidden md:flex gap-2">
           <Link to="/" className="text-black font-bold text-lg hover:text-teal-700">Home</Link>
           <Link to="/katalog" className="text-black font-bold text-lg hover:text-teal-700 relative">Katalog</Link>
-          <Link to="/informasi" className="text-black font-bold text-lg hover:text-teal-700">Informasi</Link>
+          <Link to="/membership" className="text-black font-bold text-lg hover:text-teal-700">Membership</Link>
           <Link to="/tentang" className="text-black font-bold text-lg hover:text-teal-700">Tentang Kami</Link>
           {isLoggedIn ? (
             <div className="relative dropdown">

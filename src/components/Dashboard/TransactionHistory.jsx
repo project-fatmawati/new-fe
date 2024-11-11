@@ -1,40 +1,16 @@
-import React from 'react';
-import TransactionCard from '../Transaksi/TransactionCard'
+  import React, {useState,useEffect} from 'react';
+import TransactionCard from './TransactionCard'
 import Img1 from "../../assets/shirt.png"
 import Img2 from "../../assets/shirt2.png"
 import Img3 from "../../assets/shirt3.png"
 
 function TransactionHistory() {
-  const transactions = [
-    // {
-    //   name: 'Brown Sweater',
-    //   condition: 'Baik',
-    //   message: 'Pakaian masih mulus, dan layak pakai',
-    //   image: {shirt}, 
-    //   points: 20,
-    // },
+  const [totalPoints, setTotalPoints] = useState(0);
 
-    // {
-    //     name: 'Brown Sweater',
-    //     condition: 'Baik',
-    //     message: 'Pakaian masih mulus, dan layak pakai',
-    //     image: {shirt2}, 
-    //     points: 20,
-    //   },
-    //   {
-    //     name: 'Brown Sweater',
-    //     condition: 'Baik',
-    //     message: 'Pakaian masih mulus, dan layak pakai',
-    //     image: {shirt3}, 
-    //     points: 20,
-    //   },
-    //   {
-    //     name: 'Brown Sweater',
-    //     condition: 'Baik',
-    //     message: 'Pakaian masih mulus, dan layak pakai',
-    //     image: {shirt3}, 
-    //     points: 20,
-    //   },
+
+
+  
+  const transactions = [
 
       {
         id: 1,
@@ -69,10 +45,16 @@ function TransactionHistory() {
     // ... data transaksi lainnya
   ];
 
+  useEffect(() => {
+    const totalPoints = transactions.reduce((acc, transaction) => acc + transaction.points, 0);
+    setTotalPoints(totalPoints);
+  }, [transactions]);
+
   return (
     <div className="container mx-auto py-[50px] h-full pb-40">
       <h1 className="text-3xl font-bold mb-8">Riwayat Transaksi</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[30px]">
+      <h2 className="text-2xl text-teal font-bold pb-5">Poin Terkumpul : {totalPoints} BarterPoin</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[30px] pt-5">
         {transactions.map((transaction, index) => (
           <TransactionCard key={index} item={transaction} />
         ))}
