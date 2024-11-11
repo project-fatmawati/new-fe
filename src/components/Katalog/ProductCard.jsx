@@ -23,7 +23,7 @@ function ProductCard({product}) {
           <p className="text-black text-md line-clamp-1">{product.description}</p>
         </div>
         <button className=" block mx-auto bg-teal hover:scale-105 duration-300 text-white py-1 px-4 rounded-full mt-4 group-hover:bg-teal-500 " onClick={handleBarterClick}>
-          Barter Now
+          Lihat Detail
         </button>
     </div>
   );

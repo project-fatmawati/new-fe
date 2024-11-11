@@ -41,10 +41,17 @@ function Navbar() {
           <img src={Logo} alt="BarterStyle Logo" className="h-12" />
         </Link>
         <div className="flex items-center space-x-6 hidden md:flex gap-2">
+<<<<<<< HEAD
           <Link to="/" className="text-black font-bold text-lg hover:text-teal">Home</Link>
           <Link to="/katalog" className="text-black font-bold text-lg hover:text-teal relative">Katalog</Link>
           <Link to="/informasi" className="text-black font-bold text-lg hover:text-teal">Informasi</Link>
           <Link to="/tentang" className="text-black font-bold text-lg hover:text-teal">Tentang Kami</Link>
+=======
+          <Link to="/" className="text-black font-bold text-lg hover:text-teal-700">Home</Link>
+          <Link to="/katalog" className="text-black font-bold text-lg hover:text-teal-700 relative">Katalog</Link>
+          <Link to="/membership" className="text-black font-bold text-lg hover:text-teal-700">Membership</Link>
+          <Link to="/tentang" className="text-black font-bold text-lg hover:text-teal-700">Tentang Kami</Link>
+>>>>>>> 0bca3845bee1fccec8a0fa7ae850bd89622a7518
           {isLoggedIn ? (
             <div className="relative dropdown">
               <button onClick={toggleDropdown} className="flex items-center bg-teal text-white px-4 py-2 rounded font-bold text-lg">

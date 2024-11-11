@@ -1,0 +1,146 @@
+/* Payment Page Styling */
+.paymentPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 20px;
+  }
+  
+  .payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+  }
+  
+  .paymentMethods button {
+    padding: 14px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #357abd;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .paymentMethods button:active {
+    transform: scale(0.97);
+  }
+  
+  .paymentMethods i {
+    font-size: 1.3rem;
+  }
+  
+  .paymentMethods button:hover {
+    background-color: #357abd;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .paymentMethods button:nth-child(3) {
+    background-color: #e53e3e;
+  }
+  
+  .paymentMethods button:nth-child(3):hover {
+    background-color: #c53030;
+  }
+  
+  .paymentPage .decoration {
+    width: 50px;
+    height: 50px;
+    background-color: #edf2f7;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    animation: floating 6s ease-in-out infinite;
+  }
+  
+  .paymentPage .decoration.decoration1 {
+    top: 10%;
+    left: 15%;
+    animation-delay: -2s;
+  }
+  
+  .paymentPage .decoration.decoration2 {
+    bottom: 10%;
+    right: 15%;
+    animation-delay: -1s;
+  }
+  
+  .paymentPage .decoration.decoration3 {
+    top: 50%;
+    right: 30%;
+  }
+  
+  @keyframes floating {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .paymentMethods button {
+      width: 100%;
+      font-size: 0.9rem;
+    }
+  
+    .paymentPage {
+      margin: 30px;
+    }
+  }
+  
+  .bankOptions {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fefefe;
+  }
+  
+  .bankOptions h3 {
+    margin-bottom: 15px;
+    color: #1a202c;
+    text-align: center;
+  }
+  
+  .bankButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .bankButtons button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+  }
+  
+  .bankButtons button:hover {
+    background-color: #357abd;
+  }
+  
+  .bankButtons button:active {
+    transform: scale(0.95);
+  }
+  
