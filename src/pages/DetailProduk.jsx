@@ -3,36 +3,36 @@ import { useParams } from "react-router-dom";
 // import { useAuth } from "../context/AuthContext";
 import { useProduct } from "../context/ProductContext";
 import { useState, useEffect } from 'react';
-import { useOrder } from '../context/OrderContext'
+// import { useOrder } from '../context/OrderContext'
 import { useNavigate } from "react-router-dom";
 
 function DetailProduk() {
-  const { isLoggedIn } = useAuth();
+  // const { isLoggedIn } = useAuth();
   const { productId } = useParams();
   const { getProductById, productDetail } = useProduct();
-  const { addToCart} = useOrder();
+  // const { addToCart} = useOrder();
   const navigate = useNavigate();
 
   useEffect(() => {
     getProductById(productId);
   }, [productId]);
   
-  const handleAddToCart = () => {
-    if (isLoggedIn) {
-      // Tambahkan produk ke keranjang jika pengguna sudah login
-      addToCart(productDetail);
-      // ...
-    } else {
-      // Redirect ke halaman login jika belum login
-      navigate('/login');
-    }
-  };
-
-
   // const handleAddToCart = () => {
+  //   if (isLoggedIn) {
+  //     // Tambahkan produk ke keranjang jika pengguna sudah login
   //     addToCart(productDetail);
-  //     navigate('/productDtail')
+  //     // ...
+  //   } else {
+  //     // Redirect ke halaman login jika belum login
+  //     navigate('/login');
   //   }
+  // };
+
+
+  const handleAddToCart = () => {
+      addToCart(productDetail);
+      navigate('/productDetail')
+    }
 
 
   return (
@@ -43,7 +43,7 @@ function DetailProduk() {
         </h1>
       </div>
       <div className="flex flex-col md:flex-row gap-4 py-[100px] pb-[100px]">
-        {productDetail ? (
+        {/* {productDetail ? ( */}
           <>
             <div className="md:w-[40%]">
               <div className="w-full md:w-1/2 mx-auto border flex justify-center">
@@ -83,9 +83,9 @@ function DetailProduk() {
               </p>
             </div>
           </>
-        ) : (
+        {/* ) : (
           <p>Product not found.</p>
-        )}
+        )} */}
       </div>
     </>
   );

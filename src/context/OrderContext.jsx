@@ -5,25 +5,25 @@ const OrderContext = createContext();
 
 export function OrderProvider({ children }) {
   const [order, setOrder] = useState(
-    {
-      user : null,
-      products: [],
-    }
+    // {
+    //   user : null,
+    //   products: [],
+    // }
   );
   
   const { user } = useAuth();
   const { products } = useProduct();
 
-  const fetchProducts = async () => {
-    try {
-      const response = await fetch('https://fakestoreapi.com/carts/user/2'); // Replace with your API endpoint
-      const data = await response.json();
-      console.log(data);
-      setOrder((prevState) => ({ ...prevState, products: data }));
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    }
-  };
+  // const fetchProducts = async () => {
+  //   try {
+  //     const response = await fetch('https://fakestoreapi.com/carts/user/2'); // Replace with your API endpoint
+  //     const data = await response.json();
+  //     console.log(data);
+  //     setOrder((prevState) => ({ ...prevState, products: data }));
+  //   } catch (error) {
+  //     console.error('Error fetching products:', error);
+  //   }
+  // };
 
   const addToCart = async (product) => {
     try {

@@ -18,6 +18,12 @@ function ProductCard({product}) {
     }
   };
 
+  // const handleBarterClick = () => {
+
+  //     navigate(`/DetailProduk/${product.id}`);
+
+  // };
+
   return (
     <div className="items-center rounded-2xl p-5 bg-white hover:border hover:text-black relative shadow-xl duration-300 group max-w-[300px]">
       <div className="w-full object-cover rounded-md block mx-auto">
