@@ -11,33 +11,51 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null); 
 
-   // Fungsi untuk mendaftarkan pengguna
-   const register = async (formData) => {
+  const regis = async (formData) => {
     try {
-      const response = await axios.post('https://barterstyle-backend.onrender.com/api/auth/regis', formData);
-      setUser(response.data);
+      const response = await fetch('https://barterstyle-backend.onrender.com/api/auth/regis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+  
+      if (!response.ok) {
+        throw new Error(await response.text());
+      }
+  
+      const data = await response.json();
+      setUser(data);
       // Simpan token atau data pengguna lain ke local storage jika diperlukan
     } catch (error) {
-      setError(error.response.data.message);
+      setError(error.message);
     } finally {
       setLoading(false);
     }
   };
 
 
-    // Fungsi untuk melakukan login
-    const login = async (formData) => {
-      try {
-        const response = await axios.post('https://barterstyle-backend.onrender.com/api/auth/login', formData);
-        setUser(response.data.user);
-        // Simpan token ke local storage
-        localStorage.setItem('authToken', response.data.token);
-      } catch (error) {
-        setError(error.response.data.message);
-      } finally {
-        setLoading(false);
+  const login = async (formData) => {
+    try {
+      const response = await fetch('https://barterstyle-backend.onrender.com/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+  
+      if (!response.ok) {
+        throw new Error(await   
+   response.text());
       }
-    };
+  
+      const data = await response.json();
+      setUser(setUser(data.user));
+      localStorage.setItem('authToken', data.token);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
       // Fungsi untuk logout
   const logout = () => {
@@ -49,8 +67,6 @@ export function AuthProvider({ children }) {
     // Periksa apakah ada token di local storage saat aplikasi dimulai
     const token = localStorage.getItem('authToken');
     if (token) {
-      // Tambahkan logic untuk memverifikasi token dan mengambil data pengguna dari backend
-      // ...
     } else {
       setLoading(false);
     }
@@ -77,7 +93,7 @@ export function AuthProvider({ children }) {
   // );
 
   return (
-    <AuthContext.Provider value={{ user, loading, error, register, login, logout }}>
+    <AuthContext.Provider value={{ user, loading, error, regis, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
@@ -93,4 +109,4 @@ export const useAuth = () => {
   }
   return context;
 }
-// export default AuthContext;
+// export const useAuth= () => useContext(AuthContext);

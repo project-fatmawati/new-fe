@@ -2,14 +2,14 @@ import {  useState, useContext } from "react";
 import {useAuth} from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 // import Logo from '../assets/Logo-nav.png';
-import Icon from "../assets/clothes-icon.png"; // Pastikan path ini benar
-import axios from "axios";
+import Icon from "../assets/clothes-icon.png"; 
+// import axios from "axios";
 
 function Register() {
-  const { register } = useAuth();
+  const { regis } = useAuth();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // const [firstName, setFirstName] = useState('');
-  // const [lastName, setLastName] = useState('');
   const [fullName, setFullName] = useState("");
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -17,6 +17,7 @@ function Register() {
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
   const [kuota, setKuota] = useState("");
+  
   // const [confirmPassword, setConfirmPassword] = useState('');
   // const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
@@ -47,13 +48,7 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Validasi   
-
-    if (!validateForm(formData)) {
-      alert('Silahkan periksa kembali data yang Anda masukkan.');
-      return;
-    }
+    setLoading(true); 
 
     try {
       const formData = {
@@ -66,25 +61,30 @@ function Register() {
         kuota,
       };
 
-      const res = await axios.post(
-        "https://barterstyle-backend.onrender.com/api/auth/regis",
-        formData
-      );
-
-      if (res.status === 201) {
-        alert("Pendaftaran berhasil!");
-        navigate("/login");
-      } else {
-        alert(res.data.message || "Terjadi kesalahan pendaftaran.");
-      }
-    } catch (error) {
+      // const response = await fetch('https://barterstyle-backend.onrender.com/api/auth/regis', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: JSON.stringify(formData)
+      // });
   
-      console.error(error);
-      alert("Terjadi kesalahan sistem. Silahkan coba lagi nanti.");
+      await regis(formData);
+
+      if (!response.ok) {
+        throw new Error('Gagal mendaftar. Silahkan coba lagi.');
+      }
+  
+      alert('Pendaftaran berhasil!');
+      navigate('/login');
+    } catch (error) {
+      alert('Sistem Error')
+      setError('Terjadi kesalahan sistem. Silahkan coba lagi nanti.');
+    } finally {
+      setLoading(false); 
     }
-  };
-
-
+    }
+  
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <div className="flex-grow flex items-center justify-center py-12">
@@ -101,32 +101,7 @@ function Register() {
             <div className="mt-4 mb-6 border-t-2 border-gray"></div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {/* <div>
-              <label htmlFor="first-name" className="block text-sm font-medium text-gray">Nama Depan *</label>
-              <input
-                type="text"
-                id="first-name"
-                placeholder="Nama Depan"
-                required
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                className="w-full px-4 py-2 border border-gray rounded-md focus:outline-none focus:ring-2 focus:ring-teal"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">Nama Belakang *</label>
-              <input
-                type="text"
-                id="last-name"
-                placeholder="Nama Belakang"
-                required
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal"
-              />
-            </div> */}
+          <form onSubmit={handleSubmit} className="space-y-4"  >
             <div>
               <label
                 htmlFor="full-name"
@@ -180,19 +155,6 @@ function Register() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal"
               />
             </div> 
-            {/* 
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Nomor WhatsApp *</label>
-              <input
-                type="text"
-                id="phone"
-                placeholder="Nomor WhatsApp"
-                required
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal"
-              />
-            </div> */}
             <div>
               <label
                 htmlFor="handphone"
@@ -309,7 +271,7 @@ function Register() {
             <button
               type="submit"
               className="w-full bg-teal text-white font-bold py-2 rounded hover:bg-cyan transition duration-200"
-            >
+              >
               Daftar
             </button>
           </form>
