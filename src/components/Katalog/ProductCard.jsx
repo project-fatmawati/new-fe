@@ -7,9 +7,9 @@ function ProductCard({product}) {
   const { isLoggedIn } = useProduct();
 
 
-
   const handleBarterClick = () => {
     if (isLoggedIn) {
+      console.log("User is logged in, navigating to detail page.");
       // Navigate to product detail for logged-in users
       navigate(`/DetailProduk/${product.id}`);
     } else {

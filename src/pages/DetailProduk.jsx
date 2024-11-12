@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+// import { useAuth } from "../context/AuthContext";
 import { useProduct } from "../context/ProductContext";
 import { useState, useEffect } from 'react';
 import { useOrder } from '../context/OrderContext'
 import { useNavigate } from "react-router-dom";
 
 function DetailProduk() {
+  // const { isLoggedIn } = useAuth();
   const { productId } = useParams();
   const { getProductById, productDetail } = useProduct();
   const { addToCart} = useOrder();
@@ -15,28 +17,22 @@ function DetailProduk() {
     getProductById(productId);
   }, [productId]);
   
+  // const handleAddToCart = () => {
+  //   if (isLoggedIn) {
+  //     // Tambahkan produk ke keranjang jika pengguna sudah login
+  //     addToCart(productDetail);
+  //     // ...
+  //   } else {
+  //     // Redirect ke halaman login jika belum login
+  //     navigate('/login');
+  //   }
+  // };
+
 
   const handleAddToCart = () => {
-    addToCart(product);
-    // Simpan data keranjang ke localStorage setelah berhasil ditambahkan
-    localStorage.setItem('cart', JSON.stringify(cart));
-    navigate(`/Cart`);
-  };
-
-  // const toggleLike = (productId) => {
-  //   setOrder((prevState) => {
-  //     const newLikedProducts = new Set(prevState.likedProducts);
-  //     if (newLikedProducts.has(productId)) {
-  //       newLikedProducts.delete(productId);
-  //     } else {
-  //       newLikedProducts.add(productId);
-  //     }
-  //     return {
-  //       ...prevState,
-  //       likedProducts: [...newLikedProducts],
-  //     };
-  //   });
-  // };
+      addToCart(productDetail);
+      navigate('/productDtail')
+    }
 
 
   return (
