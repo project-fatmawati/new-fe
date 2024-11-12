@@ -20,14 +20,14 @@ import Footer from "./components/Landingpage/Footer";
 import MembershipPage from "./pages/Membership/MembershipPage";
 import PaymentMember from "./pages/PaymentMember/PaymentMember";
 import StylishShield from "./pages/StylishShield";
-import { ProductProvider } from "./context/ProductContext";
-import { OrderProvider } from "./context/OrderContext";
+// import { ProductProvider } from "./context/ProductContext";
+// import { OrderProvider } from "./context/OrderContext";
 
 function App() {
   return (
     <AuthProvider>
-      <ProductProvider>
-        <OrderProvider>
+      {/* <ProductProvider> */}
+       {/* <OrderProvider> */}
         <div className="App">
           <Navbar />
           <Routes>
@@ -57,10 +57,10 @@ function App() {
           </Routes>
           <Footer />
         </div>
-        </OrderProvider>
-      </ProductProvider>
+     {/* </OrderProvider> */}
+     {/* </ProductProvider> */}
     </AuthProvider>
-  );
+  )
 }
 export default App;
 

@@ -14,34 +14,34 @@ export function OrderProvider({ children }) {
   const { user } = useAuth();
   const { products } = useProduct();
 
-  // const fetchProducts = async () => {
-  //   try {
-  //     const response = await fetch('https://fakestoreapi.com/carts/user/2'); // Replace with your API endpoint
-  //     const data = await response.json();
-  //     console.log(data);
-  //     setOrder((prevState) => ({ ...prevState, products: data }));
-  //   } catch (error) {
-  //     console.error('Error fetching products:', error);
-  //   }
-  // };
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch('https://fakestoreapi.com/carts/user/2'); // Replace with your API endpoint
+      const data = await response.json();
+      console.log(data);
+      setOrder((prevState) => ({ ...prevState, products: data }));
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    }
+  };
 
-  // const addToCart = async (product) => {
-  //   try {
-  //     const response = await fetch('https://fakestoreapi.com/carts', {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/json' },
-  //       body: JSON.stringify(product),
-  //     });
+  const addToCart = async (product) => {
+    try {
+      const response = await fetch('https://fakestoreapi.com/carts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(product),
+      });
 
-  //     if (response.ok) {
-  //       // Handle successful addition (e.g., update UI with cart count)
-  //     } else {
-  //       console.error('Error adding to cart:', await response.text());
-  //     }
-  //   } catch (error) {
-  //     console.error('Error adding to cart:', error);
-  //   }
-  // };
+      if (response.ok) {
+        // Handle successful addition (e.g., update UI with cart count)
+      } else {
+        console.error('Error adding to cart:', await response.text());
+      }
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+    }
+  };
 
 // ... (omitted for brevity)
 
@@ -62,19 +62,9 @@ useEffect(() => {
   localStorage.setItem('order', JSON.stringify(order));
 }, [order, user]);
 
-// useEffect(() => {
-//   if (userId) {
-//     // Fetch user data based on userId
-//     fetch(`your-api/users/${userId}`)
-//       .then(response => response.json())
-//       .then(userData => setOrder(prevState => ({ ...prevState, user: userData })))
-//       .catch(error => console.error('Error fetching user data:', error));
-//   }
-// }, [userId]);
-
   
   return (
-    <OrderContext.Provider value={{ order, setOrder}}>
+    <OrderContext.Provider value={{ order, setOrder, addToCart}}>
       {children}
     </OrderContext.Provider>
   );

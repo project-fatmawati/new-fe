@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-// import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 import { useProduct } from "../context/ProductContext";
 import { useState, useEffect } from 'react';
 import { useOrder } from '../context/OrderContext'
 import { useNavigate } from "react-router-dom";
 
 function DetailProduk() {
-  // const { isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
   const { productId } = useParams();
   const { getProductById, productDetail } = useProduct();
   const { addToCart} = useOrder();
@@ -17,22 +17,22 @@ function DetailProduk() {
     getProductById(productId);
   }, [productId]);
   
-  // const handleAddToCart = () => {
-  //   if (isLoggedIn) {
-  //     // Tambahkan produk ke keranjang jika pengguna sudah login
-  //     addToCart(productDetail);
-  //     // ...
-  //   } else {
-  //     // Redirect ke halaman login jika belum login
-  //     navigate('/login');
-  //   }
-  // };
-
-
   const handleAddToCart = () => {
+    if (isLoggedIn) {
+      // Tambahkan produk ke keranjang jika pengguna sudah login
       addToCart(productDetail);
-      navigate('/productDtail')
+      // ...
+    } else {
+      // Redirect ke halaman login jika belum login
+      navigate('/login');
     }
+  };
+
+
+  // const handleAddToCart = () => {
+  //     addToCart(productDetail);
+  //     navigate('/productDtail')
+  //   }
 
 
   return (

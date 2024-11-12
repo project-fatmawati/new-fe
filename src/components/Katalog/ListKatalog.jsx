@@ -1,6 +1,6 @@
 import React from "react";
 import { useProduct } from '../../context/ProductContext'
-import { useAuth } from "../../context/AuthContext";
+// import { useAuth } from "../../context/AuthContext";
 import ProductCard from './ProductCard'
 
 function ListKatalog() {
