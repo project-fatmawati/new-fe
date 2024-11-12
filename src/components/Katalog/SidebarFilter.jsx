@@ -1,87 +1,79 @@
-import React from 'react';
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
+import { FcSearch } from "react-icons/fc";
 
 function SidebarFilter() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedColors, setSelectedColors] = useState([]);
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const [selectedSizes, setSelectedSizes] = useState([]);
+  const [input, setInput] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
-  const handleSearch = (e) => {
-    setSearchQuery(e.target.value);
+  const fetchData = (value) => {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((json) => {
+        const results = json.filter(
+          (product) =>
+            product &&
+            product.title &&
+            product.title.toLowerCase().includes(value)
+        );
+        setFilteredProducts(results); // Update filteredProducts state
+        console.log(results);
+      });
+  };
+  const handleChange = (value) => {
+    setInput(value);
+    fetchData(value);
   };
 
-  const handleColorSelect = (color) => {
-    if (selectedColors.includes(color)) {
-      setSelectedColors(selectedColors.filter((c) => c !== color));
-    } else {
-      setSelectedColors([...selectedColors, color]);
-    }
-  };
-
-  const handleCategorySelect = (category) => {
-    if (selectedCategories.includes(category)) {
-      setSelectedCategories(selectedCategories.filter((c) => c !== category));
-    } else {
-      setSelectedCategories([...selectedCategories, category]);
-    }
-  };
-  const handleSizesSelect = (sizes) => {
-    if (selectedCategories.includes(sizes)) {
-      setSelectedSizes(selectedCategories.filter((c) => c !== sizes));
-    } else {
-      setSelectedSizes([...selectedSizes, sizes]);
-    }
-  };
 
   return (
-    <aside className="bg-gray-100 p-4 w-72">
-      <div className="mb-4 flex">
-        <input
-          type="text"
-          placeholder="Search products..."
-          value={searchQuery}
-          onChange={handleSearch}
-          className="w-full px-3 py-2 border rounded-md"
-        />
-          <button className="bg-mustard  text-black font-bold py-2 px-2 rounded">
-    Search
-  </button>
+    <aside className="py-4 w-96">
+      <div className="flex flex-col mb-4">
+        <h3 className="text-xl font-semibold pb-3">Cari Pakaian</h3>
+        <div className="relative">
+        <FcSearch className="h-5 w-5 absolute left-3 top-3 text-gray-400" />
+          <input
+            type="text"
+            value={input}
+            placeholder="Search products..."
+            onChange={(e) => handleChange(e.target.value)}
+            className="w-full px-3 py-2 pl-8 border rounded-md focus:outline-none focus:ring focus:ring-mustard-400 sm:w-3/4 md:w-2/3 lg:w-1/2"
+          />
+        </div>
       </div>
 
-      <h3 className="text-lg font-semibold">Filter by Color</h3>
-      <div className="space-y-2">
-        {/* Contoh tombol warna */}
-        <button
-          className={`px-3 py-2 rounded-md ${selectedColors.includes('white') ? ' text-teal' : 'text-black'}`}
-          onClick={() => handleColorSelect('white')}
-        >
-          White
-        </button>
-        {/* Tambahkan tombol warna lainnya di sini */}
-      </div>
+      {/* Tampilkan hasil filter hanya jika ada input */}
+      {input && (
+        <ul className="list-disc space-y-2 pr-20">
+          {filteredProducts.slice(0).map((product) => (
+            <li key={product.id}>
+              {/* Display product details here */}
+              {product.title}
+            </li>
+          ))}
+        </ul>
+      )}
 
-      <h3 className="text-lg font-semibold mt-4">Categories</h3>
-      <div className="space-y-2">
-        {/* Contoh tombol kategori */}
-        <button
-          className={`px-3 py-2 rounded-md ${selectedCategories.includes('Kemeja') ? ' text-teal' : 'text-black'}`}
-          onClick={() => handleCategorySelect('Kemeja')}
-        >
-          Kemeja (2)
-        </button>
-        {/* Tambahkan tombol kategori lainnya di sini */}
-      </div>
-      <h3 className="text-lg font-semibold mt-4">Sizes</h3>
-      <div className="space-y-2">
-        {/* Contoh tombol kategori */}
-        <button
-          className={`px-3 py-2 rounded-md ${selectedSizes.includes('S') ? ' text-teal' : 'text-black'}`}
-          onClick={() => handleSizesSelect('S')}
-        >
-          S (2)
-        </button>
-        {/* Tambahkan tombol kategori lainnya di sini */}
+      <div className="pt-20">
+        <h3 className="text-lg font-semibold">Filter by Color</h3>
+        <div className="space-y-2">
+          {/* Contoh tombol warna */}
+          <button>White</button>
+          {/* Tambahkan tombol warna lainnya di sini */}
+        </div>
+
+        <h3 className="text-lg font-semibold mt-4">Categories</h3>
+        <div className="space-y-2">
+          {/* Contoh tombol kategori */}
+          <button>Kemeja (2)</button>
+          {/* Tambahkan tombol kategori lainnya di sini */}
+        </div>
+        <h3 className="text-lg font-semibold mt-4">Sizes</h3>
+        <div className="space-y-2">
+          {/* Contoh tombol kategori */}
+          <button>S (2)</button>
+          {/* Tambahkan tombol kategori lainnya di sini */}
+        </div>
       </div>
     </aside>
   );
