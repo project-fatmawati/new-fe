@@ -7,8 +7,8 @@ import Icon from "../assets/clothes-icon.png";
 
 function Register() {
   const { regis } = useAuth();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
 
   const [fullName, setFullName] = useState("");
   const [userName, setUserName] = useState("");
@@ -19,71 +19,63 @@ function Register() {
   const [kuota, setKuota] = useState("");
   
   // const [confirmPassword, setConfirmPassword] = useState('');
-  // const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   if (password !== confirmPassword) {
-  //     setErrorMessage('Password dan konfirmasi password tidak cocok!');
-  //     return;
-  //   }
-
-  //   // Simpan data pengguna ke localStorage
-  //   let users = JSON.parse(localStorage.getItem('users')) || {};
-  //   if (users[email]) {
-  //     setErrorMessage('Email sudah terdaftar!');
-  //     return;
-  //   }
-
-  //   users[email] = { firstName, lastName, phone, address, password };
-  //   localStorage.setItem('users', JSON.stringify(users));
-
-  //   alert('Pendaftaran berhasil!');
-  //   navigate("/login"); // Redirect ke halaman login
-  // };
-
-
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true); 
 
-    try {
-      const formData = {
-        fullName,
-        userName,
-        email,
-        handphone,
-        address,
-        password,
-        kuota,
-      };
+    // if (password !== confirmPassword) {
+    //   setErrorMessage('Password dan konfirmasi password tidak cocok!');
+    //   return;
+    // }
 
-      // const response = await fetch('https://barterstyle-backend.onrender.com/api/auth/regis', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   },
-      //   body: JSON.stringify(formData)
-      // });
-  
-      await regis(formData);
-
-      if (!response.ok) {
-        throw new Error('Gagal mendaftar. Silahkan coba lagi.');
-      }
-  
-      alert('Pendaftaran berhasil!');
-      navigate('/login');
-    } catch (error) {
-      alert('Sistem Error')
-      setError('Terjadi kesalahan sistem. Silahkan coba lagi nanti.');
-    } finally {
-      setLoading(false); 
+    // Simpan data pengguna ke localStorage
+    let users = JSON.parse(localStorage.getItem('users')) || {};
+    if (users[email]) {
+      setErrorMessage('Email sudah terdaftar!');
+      return;
     }
-    }
+
+    users[email] = { userName, handphone, address, password };
+    localStorage.setItem('users', JSON.stringify(users));
+
+    alert('Pendaftaran berhasil!');
+    navigate("/login"); // Redirect ke halaman login
+  };
+
+
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true); 
+
+  //   try {
+  //     const formData = {
+  //       fullName,
+  //       userName,
+  //       email,
+  //       handphone,
+  //       address,
+  //       password,
+  //       kuota,
+  //     };
+  
+  //     await regis(formData);
+
+  //     if (!response.ok) {
+  //       throw new Error('Gagal mendaftar. Silahkan coba lagi.');
+  //     }
+  
+  //     alert('Pendaftaran berhasil!');
+  //     navigate('/login');
+  //   } catch (error) {
+  //     alert('Sistem Error')
+  //     setError('Terjadi kesalahan sistem. Silahkan coba lagi nanti.');
+  //   } finally {
+  //     setLoading(false); 
+  //   }
+  //   }
   
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
