@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
+import { useAuth } from "./AuthContext";
 
 const ProductContext = createContext ({
   products: [],
@@ -12,6 +13,8 @@ const ProductContext = createContext ({
 export function ProductProvider ({children}) {
   const [products, setProducts] = useState([]);
   const [productDetail, setProductDetail] = useState(null);
+  const { isLoggedIn } = useAuth(); 
+  
 
 
   const getProducts = async () => {
@@ -40,10 +43,10 @@ export function ProductProvider ({children}) {
     }
   };
 
-
   useEffect(() => {
-    getProducts ();
-  } , []);
+    getProducts();
+  }, []);
+
 
   return (
     <ProductContext.Provider value={{products, getProductById, productDetail}}>{children}</ProductContext.Provider>

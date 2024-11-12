@@ -4,6 +4,7 @@ import RecentProduct from "../components/Landingpage/RecentProduct";
 import Header from "../components/Layout/Header";
 import Newsletter from "../components/Landingpage/Newsletter";
 import {ProductProvider} from '../context/ProductContext'
+import Review from "../components/Landingpage/Review";
 
 function HomePage() {
   return (
@@ -16,6 +17,7 @@ function HomePage() {
         />
         <RecentProduct />
         <FAQ />
+        <Review/>
         <Newsletter />
       </div>
     </ProductProvider>

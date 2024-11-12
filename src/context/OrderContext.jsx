@@ -1,32 +1,29 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-
+import { useAuth } from './AuthContext';
+import { useProduct } from './ProductContext';
 const OrderContext = createContext();
 
 export function OrderProvider({ children }) {
-  const [order, setOrder] = useState({
+  const [order, setOrder] = useState(
+    // {
+    //   user : null,
+    //   products: [],
+    // }
+  );
+  
+  const { user } = useAuth();
+  const { products } = useProduct();
 
-    products: [],
-    customer: {
-      name: '',
-      address: '',
-    },
-    paymentMethod: '',
-    shippingAddress: '',
-    status: 'pending',
-    totalPrice: 0,
-  });
-
-
-  const fetchProducts = async () => {
-    try {
-      const response = await fetch('https://fakestoreapi.com/carts/user/2'); // Replace with your API endpoint
-      const data = await response.json();
-      console.log(data);
-      setOrder((prevState) => ({ ...prevState, products: data }));
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    }
-  };
+  // const fetchProducts = async () => {
+  //   try {
+  //     const response = await fetch('https://fakestoreapi.com/carts/user/2'); // Replace with your API endpoint
+  //     const data = await response.json();
+  //     console.log(data);
+  //     setOrder((prevState) => ({ ...prevState, products: data }));
+  //   } catch (error) {
+  //     console.error('Error fetching products:', error);
+  //   }
+  // };
 
   const addToCart = async (product) => {
     try {
@@ -46,12 +43,28 @@ export function OrderProvider({ children }) {
     }
   };
 
+// ... (omitted for brevity)
+
 useEffect(() => {
-    fetchProducts();
-  }, []);
+  const storedOrder = localStorage.getItem('order');
+  if (storedOrder) {
+    try {
+      const parsedOrder = JSON.parse(storedOrder);
+      setOrder(parsedOrder);
+    } catch (error) {
+      console.error('Error parsing stored order:', error);
+      // Handle the error, e.g., log it or display an error message
+    }
+  } else {
+    setOrder({ user, products: [] });
+  }
+
+  localStorage.setItem('order', JSON.stringify(order));
+}, [order, user]);
+
   
   return (
-    <OrderContext.Provider value={{ order, addToCart}}>
+    <OrderContext.Provider value={{ order, setOrder, addToCart}}>
       {children}
     </OrderContext.Provider>
   );
