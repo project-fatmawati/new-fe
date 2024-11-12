@@ -18,23 +18,25 @@ function DetailProduk() {
 
   const handleAddToCart = () => {
     addToCart(product);
+    // Simpan data keranjang ke localStorage setelah berhasil ditambahkan
+    localStorage.setItem('cart', JSON.stringify(cart));
     navigate(`/Cart`);
   };
 
-  const toggleLike = (productId) => {
-    setOrder((prevState) => {
-      const newLikedProducts = new Set(prevState.likedProducts);
-      if (newLikedProducts.has(productId)) {
-        newLikedProducts.delete(productId);
-      } else {
-        newLikedProducts.add(productId);
-      }
-      return {
-        ...prevState,
-        likedProducts: [...newLikedProducts],
-      };
-    });
-  };
+  // const toggleLike = (productId) => {
+  //   setOrder((prevState) => {
+  //     const newLikedProducts = new Set(prevState.likedProducts);
+  //     if (newLikedProducts.has(productId)) {
+  //       newLikedProducts.delete(productId);
+  //     } else {
+  //       newLikedProducts.add(productId);
+  //     }
+  //     return {
+  //       ...prevState,
+  //       likedProducts: [...newLikedProducts],
+  //     };
+  //   });
+  // };
 
 
   return (

@@ -4,7 +4,8 @@ const OrderContext = createContext();
 
 export function OrderProvider({ children }) {
   const [order, setOrder] = useState({
-
+    user: null,
+    // user: userId,
     products: [],
     customer: {
       name: '',
@@ -15,7 +16,8 @@ export function OrderProvider({ children }) {
     status: 'pending',
     totalPrice: 0,
   });
-
+  
+  // const [userId, setUserId] = useState(null);
 
   const fetchProducts = async () => {
     try {
@@ -49,6 +51,24 @@ export function OrderProvider({ children }) {
 useEffect(() => {
     fetchProducts();
   }, []);
+
+// useEffect(() => {
+//   if (userId) {
+//     // Fetch user data based on userId
+//     fetch(`your-api/users/${userId}`)
+//       .then(response => response.json())
+//       .then(userData => setOrder(prevState => ({ ...prevState, user: userData })))
+//       .catch(error => console.error('Error fetching user data:', error));
+//   }
+// }, [userId]);
+
+useEffect(() => {
+  const storedOrder = localStorage.getItem('order');
+  if (storedOrder) {
+      const parsedOrder = JSON.parse(storedOrder);
+      setOrder(parsedOrder);
+  }
+}, []);
   
   return (
     <OrderContext.Provider value={{ order, addToCart}}>

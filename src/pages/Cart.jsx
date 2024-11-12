@@ -17,6 +17,9 @@ const Cart = () => {
   //   // Add other cart items here
   // ];
   const { order } = useOrder();
+  if (!order.user) {
+    return <p className="text-center h-screen ">Please login to view your orders.</p>;
+  }
 
   return (
     <>
@@ -24,6 +27,7 @@ const Cart = () => {
         <h1 className="text-xl">
           <Link to={`/`}>Home</Link> / Keranjang Belanja
         </h1>
+        <h2>Welcome {order.user.name}</h2>
       </div>
 
       <div className="container mx-auto py-[100px]">
