@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+// import { useAuth } from "../context/AuthContext";
 import { useProduct } from "../context/ProductContext";
 import { useState, useEffect } from 'react';
 import { useOrder } from '../context/OrderContext'

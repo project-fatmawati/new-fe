@@ -1,10 +1,13 @@
-import { useState } from "react";
+import {  useState, useContext } from "react";
+import {useAuth} from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 // import Logo from '../assets/Logo-nav.png';
 import Icon from "../assets/clothes-icon.png"; // Pastikan path ini benar
 import axios from "axios";
 
 function Register() {
+  const { register } = useAuth();
+
   // const [firstName, setFirstName] = useState('');
   // const [lastName, setLastName] = useState('');
   const [fullName, setFullName] = useState("");
@@ -40,48 +43,47 @@ function Register() {
   //   navigate("/login"); // Redirect ke halaman login
   // };
 
-  // form function
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validasi   
+
+    if (!validateForm(formData)) {
+      alert('Silahkan periksa kembali data yang Anda masukkan.');
+      return;
+    }
+
     try {
+      const formData = {
+        fullName,
+        userName,
+        email,
+        handphone,
+        address,
+        password,
+        kuota,
+      };
+
       const res = await axios.post(
         "https://barterstyle-backend.onrender.com/api/auth/regis",
-        {
-          fullName,
-          userName,
-          email,
-          handphone,
-          address,
-          password,
-          kuota,
-        },
-
+        formData
       );
 
-      // Validasi data
-      if (
-        !fullName ||
-        !userName ||
-        !email ||
-        !handphone ||
-        !address ||
-        !password
-      ) {
-        alert("Semua field harus diisi.");
-        return;
-      }
       if (res.status === 201) {
-        // Asumsi status 201 untuk created
         alert("Pendaftaran berhasil!");
         navigate("/login");
       } else {
         alert(res.data.message || "Terjadi kesalahan pendaftaran.");
       }
     } catch (error) {
+  
       console.error(error);
       alert("Terjadi kesalahan sistem. Silahkan coba lagi nanti.");
     }
   };
+
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
@@ -134,7 +136,7 @@ function Register() {
               </label>
               <input
                 type="text"
-                id="first-name"
+                id="full-name"
                 placeholder="Nama Lengkap"
                 required
                 value={fullName}
@@ -177,7 +179,7 @@ function Register() {
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal"
               />
-            </div>
+            </div> 
             {/* 
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Nomor WhatsApp *</label>
