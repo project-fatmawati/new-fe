@@ -13,6 +13,22 @@ function Navbar() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
+  const handleLogout = () => {
+    logout();
+    navigate('/'); 
+  };
+
+  const handleProfileClick = () => {
+    navigate('/dashboard');
+  };
+
+  const handleKatalogClick = () => {
+    if (!isLoggedIn) {
+      navigate('/login');
+    } else {
+      navigate('/katalog');
+    }
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -28,12 +44,6 @@ function Navbar() {
     };
   }, []);
 
-  
-  const handleLogout = () => {
-    logout();
-    navigate('/'); 
-  };
-
   return (
     <nav className="bg-white px-4 py-3 shadow-md font-sans relative">
       <div className="container mx-auto flex items-center justify-between">
@@ -42,7 +52,7 @@ function Navbar() {
         </Link>
         <div className="flex items-center space-x-6 hidden md:flex gap-2">
           <Link to="/" className="text-black font-bold text-lg hover:text-teal">Home</Link>
-          <Link to="/katalog" className="text-black font-bold text-lg hover:text-teal relative">Katalog</Link>
+          <button onClick={handleKatalogClick} className="text-black font-bold text-lg hover:text-teal relative">Katalog</button>
           <Link to="/informasi" className="text-black font-bold text-lg hover:text-teal">Informasi</Link>
           <Link to="/tentang" className="text-black font-bold text-lg hover:text-teal">Tentang Kami</Link>
           {isLoggedIn ? (
@@ -55,7 +65,7 @@ function Navbar() {
               </button>
               {isDropdownOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-gray-200 rounded shadow-lg">
-                  <Link to="/profil" className="block px-4 py-2 text-black font-bold hover:bg-gray">Profil</Link>
+                  <button onClick={handleProfileClick} className="block px-4 py-2 text-black font-bold hover:bg-gray">Profil</button>
                   <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-red font-bold hover:bg-gray">Keluar</button>
                 </div>
               )}
@@ -75,7 +85,7 @@ function Navbar() {
 
       <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-white px-4 py-2`}>
         <Link to="/" className="block text-black font-bold text-base py-2 hover:text-teal">Home</Link>
-        <Link to="/katalog" className="block text-black font-bold text-base py-2 hover:text-teal">Katalog Pakaian</Link>
+        <button onClick={handleKatalogClick} className="block text-black font-bold text-base py-2 hover:text-teal">Katalog Pakaian</button>
         <Link to="/informasi" className="block text-black font-bold text-base py-2 hover:text-teal">Informasi</Link>
         <Link to="/tentang" className="block text-black font-bold text-base py-2 hover:text-teal">Tentang Kami</Link>
         {isLoggedIn ? (
