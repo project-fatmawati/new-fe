@@ -21,26 +21,52 @@ function Register() {
   const [error, setError] = useState(null);
 
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   const userData = {
+  //     fullname,
+  //     username,
+  //     email,
+  //     handphone,
+  //     address,
+  //     password,
+  //     kuota,
+  //   };
+
+  //   try {
+  //     await regis(userData);
+  //     alert("Pendaftaran berhasil! Silahkan login menggunakan akun Anda.");
+  //     navigate("/Login"); // Redirect to login page
+  //   } catch (error) {
+  //     console.error("Registration failed:", error);
+  //     setError("Pendaftaran gagal. Silahkan coba lagi.");
+  //   }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const userData = {
-      fullname,
-      username,
-      email,
-      handphone,
-      address,
-      password,
-      kuota,
-    };
-
+    setError(""); // Reset error state jika ada
+    
     try {
+     
+      const userData = {
+        fullname,
+        username,
+        email,
+        handphone,
+        address,
+        password,
+        kuota, // Konversi ke number jika diperlukan
+      };
+
+      console.log('Data yang akan diregistrasi:', userData);
+    
       await regis(userData);
       alert("Pendaftaran berhasil! Silahkan login menggunakan akun Anda.");
-      navigate("/Login"); // Redirect to login page
+      navigate('/Login');
     } catch (error) {
-      console.error("Registration failed:", error);
-      setError("Pendaftaran gagal. Silahkan coba lagi.");
+      console.error('Error saat registrasi:', error);
+      setError(error.message);
     }
   };
   

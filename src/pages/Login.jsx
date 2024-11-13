@@ -11,17 +11,34 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const userData = { email, password };
+  //     console.log(userData)
+  //     await login(userData); // Call login function from AuthContext
+  //     navigate('/'); // Redirect to homepage after successful login
+  //   } catch (error) {
+  //     console.error('Login failed:', error);
+  //     // Display error message to user
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(""); // Reset error state
 
     try {
       const userData = { email, password };
-      console.log(userData)
-      await login(userData); // Call login function from AuthContext
-      navigate('/'); // Redirect to homepage after successful login
+      await login(userData); // login function dari AuthContext akan menangani axios request
+      navigate('/');
     } catch (error) {
       console.error('Login failed:', error);
-      // Display error message to user
+      setError(
+        error.response?.data?.message || 
+        "Terjadi kesalahan saat login. Silakan coba lagi."
+      );
     }
   };
   return (

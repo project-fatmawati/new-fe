@@ -17,8 +17,8 @@ import Event from "./pages/Event";
 import Landingpage from "./pages/LandingPage";
 import About from "./pages/About";
 import Footer from "./components/Landingpage/Footer";
-import MembershipPage from "./pages/Membership/MembershipPage";
-import PaymentMember from "./pages/PaymentMember/PaymentMember";
+// import MembershipPage from "./pages/Membership/MembershipPage";
+// import PaymentMember from "./pages/PaymentMember/PaymentMember";
 import StylishShield from "./pages/StylishShield";
 // import { ProductProvider } from "./context/ProductContext";
 // import { OrderProvider } from "./context/OrderContext";
@@ -36,8 +36,8 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/Daftar" element={<Daftar />} />
             <Route path="/tentang" element={<About />} />
-            <Route path="/membership" element={<MembershipPage />} />
-            <Route path="/paymentMember" element={<PaymentMember />} />
+            {/* <Route path="/membership" element={<MembershipPage />} />
+            <Route path="/paymentMember" element={<PaymentMember />} /> */}
             <Route path="/stylishShield" element={<StylishShield />} />
 
             {/* Routes untuk Dashboard */}
