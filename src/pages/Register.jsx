@@ -56,6 +56,8 @@ function Register() {
       formData.append("password", password);
       formData.append("kuota", kuota); 
 
+
+      console.log(formData);
       await regis(formData);
 
       if (response.status !== 200) {
