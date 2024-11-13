@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 // import { useNavigate } from 'react-router-dom';
+// Di bagian atas file, setelah import
+axios.defaults.baseURL = 'http://localhost:3000';
 
 const AuthContext = createContext({
   user: null,
@@ -10,7 +12,6 @@ const AuthContext = createContext({
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
-  // const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(true);
 
 
@@ -76,23 +77,36 @@ export function AuthProvider({ children }) {
     try {
       const response = await axios.post('http://localhost:3000/api/auth/login', userData);
       
-      // Sesuaikan dengan response backend
-      localStorage.setItem('authToken', response.data.token);
-      localStorage.setItem('user', JSON.stringify(response.data.user));
-      setUser({
-        _id: response.data.user._id,
-        username: response.data.user.username,
-        email: response.data.user.email,
-        kuota: response.data.user.kuota
-      });
-      return response.data;
+      // Pastikan response memiliki data yang diperlukan
+      if (response.data && response.data.user) {
+        // Simpan token dan data user
+        localStorage.setItem('token', response.data.token);
+        
+        // Pastikan menyimpan semua data user yang diperlukan
+        const userToStore = {
+          id: response.data.user.id,
+          name: response.data.user.name,
+          email: response.data.user.email,
+          // tambahkan field lain yang diperlukan
+        };
+        
+        localStorage.setItem('user', JSON.stringify(userToStore));
+        
+        // Update state user dengan data lengkap
+        setUser(userToStore);
+        
+        return response.data;
+      } else {
+        throw new Error('Data user tidak lengkap');
+      }
     } catch (error) {
-      console.error('Login failed:', error);
-      throw error;
+      if (error.response?.status === 401) {
+        throw new Error('Email atau password salah');
+      }
+      console.error('Login error:', error);
+      throw new Error('Terjadi kesalahan saat login');
     }
   };
-
-
   // useEffect(() => {
   //   const storedToken = localStorage.getItem('authToken');   
 

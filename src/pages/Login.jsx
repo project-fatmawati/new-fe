@@ -10,37 +10,38 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     const userData = { email, password };
-  //     console.log(userData)
-  //     await login(userData); // Call login function from AuthContext
-  //     navigate('/'); // Redirect to homepage after successful login
-  //   } catch (error) {
-  //     console.error('Login failed:', error);
-  //     // Display error message to user
-  //   }
-  // };
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Reset error state
+    setError("");
+    setLoading(true);
 
     try {
-      const userData = { email, password };
-      await login(userData); // login function dari AuthContext akan menangani axios request
+      const userData = {
+        email: email.trim(),
+        password: password
+      };
+      console.log('Mengirim data:', userData); // Log data yang akan dikirim
+
+
+      await login(userData);
+      
+      // Jika login berhasil (tidak ada error), langsung navigate
+      console.log('Login berhasil');
       navigate('/');
+      
     } catch (error) {
-      console.error('Login failed:', error);
-      setError(
-        error.response?.data?.message || 
-        "Terjadi kesalahan saat login. Silakan coba lagi."
-      );
+      console.error('Login error:', error);
+      setError(error.message || 'Terjadi kesalahan saat login');
+    } finally {
+      setLoading(false);
     }
   };
+
+
+
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="flex justify-center items-center h-[80vh]">
@@ -58,6 +59,11 @@ function Login() {
               Yuk, tukarkan pakaian kamu di BarterStyle
             </p>
           </div>
+          {error && (
+            <div className="text-red-500 text-center mb-4">
+              {error}
+            </div>
+          )}
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label className="block text-gray-700 font-semibold mb-1">
@@ -97,11 +103,15 @@ function Login() {
                 Lupa Password?
               </a>
             </div>
+
             <button
               type="submit"
-              className="w-full bg-teal text-white font-bold py-2 rounded hover:bg-cyan transition duration-200"
+              disabled={loading}
+              className={`w-full bg-teal text-white font-bold py-2 rounded hover:bg-cyan transition duration-200 ${
+                loading ? 'opacity-50' : ''
+              }`}
             >
-              Masuk
+              {loading ? 'Logging in...' : 'Masuk'}
             </button>
           </form>
           <p className="text-center text-gray mt-6">
