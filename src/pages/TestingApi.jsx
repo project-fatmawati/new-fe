@@ -1,7 +1,7 @@
 // import React from 'react'
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-// export default function TestingApi() {
+export default function TestingApi() {
 //     const [prod, setProd] = useState([]);
 
 
@@ -12,7 +12,41 @@
 //       .then(data => setProd(data)); 
 
 //   }, []);
-//   return (
+
+const [status, setStatus] = useState(null);
+const [error, setError] = useState(null);
+
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://barterstyle-backend.onrender.com/api');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      setStatus(data.status);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  fetchData();
+}, []);
+
+
+  return (
+
+<div>
+{status === 'ok' ? (
+  <p>Backend sedang berjalan!</p>
+) : (
+  <p>Terjadi kesalahan: {error}</p>
+)}
+
+    
+</div>
+  )
+}
 //     <div>
 //       <h1>Daftar API</h1>
 //       <ul>
@@ -23,5 +57,6 @@
 //     </div>
 //   );
 // }
+
 
 

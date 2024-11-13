@@ -2,7 +2,7 @@
 import TentangKami from "../components/About/TentangKami";
 import DropPoints from "../components/About/DropPoints";
 import Newsletter from "../components/Landingpage/Newsletter";
-// import TestingApi from "./TestingAPI";
+import TestingApi from "./TestingAPI";
 
 function About() {
   return (
@@ -10,7 +10,7 @@ function About() {
       <TentangKami />
       <DropPoints />
       <Newsletter />
-      {/* <TestingApi/> */}
+      <TestingApi/>
     </div>
   );
 }

@@ -1,105 +1,119 @@
-import React, {  createContext, useContext, useState } from 'react';
+import React, {  createContext, useContext, useState,useEffect } from 'react';
 // import axios from 'axios'
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
 
-  // const [user, setUser] = useState(null);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null); 
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null); 
 
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState('');
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [username, setUsername] = useState('');
 
 
-  // const regis = async (formData) => {
-  //   try {
-  //     const response = await fetch('https://barterstyle-backend.onrender.com/api/auth/regis', {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/json' },
-  //       body: JSON.stringify(formData),
-  //     });
+  fetch('https://barterstyle-backend.onrender.com/api', {
+    mode: 'no-cors'
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      console.log(response.status); // Access the status code
+      console.log(response.statusText); // Access the status text
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    })
+
+  const regis = async (formData) => {
+    try {
+      const response = await fetch('https://barterstyle-backend.onrender.com/api/auth/regis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
   
-  //     if (!response.ok) {
-  //       throw new Error(await response.text());
-  //     }
+      if (!response.ok) {
+        throw new Error(await response.text());
+      }
   
-  //     const data = await response.json();
-  //     setUser(data);
-  //     // Simpan token atau data pengguna lain ke local storage jika diperlukan
-  //   } catch (error) {
-  //     setError(error.message);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
-
-  // const login = async (formData) => {
-  //   try {
-  //     const response = await fetch('https://barterstyle-backend.onrender.com/api/auth/login', {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/json' },
-  //       body: JSON.stringify(formData),
-  //     });
-  
-  //     if (!response.ok) {
-  //       throw new Error(await   
-  //  response.text());
-  //     }
-  
-  //     const data = await response.json();
-  //     setUser(setUser(data.user));
-  //     localStorage.setItem('authToken', data.token);
-  //   } catch (error) {
-  //     setError(error.message);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
-  //     // Fungsi untuk logout
-  // const logout = () => {
-  //   setUser(null);
-  //   localStorage.removeItem('authToken');
-  // };
-
-  // useEffect(() => {
-  //   // Periksa apakah ada token di local storage saat aplikasi dimulai
-  //   const token = localStorage.getItem('authToken');
-  //   if (token) {
-  //   } else {
-  //     setLoading(false);
-  //   }
-  // }, []);
-
-
-
-  const login = (user) => {
-    setIsLoggedIn(true);
-    setUsername(user);
+      const data = await response.json();
+      setUser(data);
+      // Simpan token atau data pengguna lain ke local storage jika diperlukan
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
+
+  const login = async (formData) => {
+    try {
+      const response = await fetch('https://barterstyle-backend.onrender.com/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+  
+      if (!response.ok) {
+        throw new Error(await   
+   response.text());
+      }
+  
+      const data = await response.json();
+      setUser(setUser(data.user));
+      localStorage.setItem('authToken', data.token);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+      // Fungsi untuk logout
   const logout = () => {
-    setIsLoggedIn(false);
-    setUsername('');
+    setUser(null);
+    localStorage.removeItem('authToken');
   };
 
+  useEffect(() => {
+    // Periksa apakah ada token di local storage saat aplikasi dimulai
+    const token = localStorage.getItem('authToken');
+    if (token) {
+    } else {
+      setLoading(false);
+    }
+  }, []);
 
 
-  // return (
-  //   <AuthContext.Provider value={{ isLoggedIn, username, token, login, logout }}>
-  //     {children}
-  //   </AuthContext.Provider>
-  // );
+
+  // const login = (user) => {
+  //   setIsLoggedIn(true);
+  //   setUsername(user);
+  // };
+
+  // const logout = () => {
+  //   setIsLoggedIn(false);
+  //   setUsername('');
+  // };
+
+
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, username, login, logout }}>
+    <AuthContext.Provider value={{  regis, login, logout, setLoading , setError}}>
       {children}
     </AuthContext.Provider>
   );
+
+  // return (
+  //   <AuthContext.Provider value={{ isLoggedIn, username, login, logout }}>
+  //     {children}
+  //   </AuthContext.Provider>
+  // );
 
 
 }
