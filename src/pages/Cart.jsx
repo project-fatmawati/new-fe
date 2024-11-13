@@ -1,6 +1,6 @@
 import CartItem from "../components/Katalog/CartItem";
 import { Link } from "react-router-dom";
-import { useOrder } from '../context/OrderContext'
+// import { useOrder } from '../context/OrderContext'
 
 const Cart = () => {
   // const cartItems = [
