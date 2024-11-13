@@ -1,12 +1,12 @@
-import React from "react";
-import SidebarFilter from "../components/SidebarFilter";
-import ListKatalog from "../components/ListKatalog";
+
+import SidebarFilter from "../components/Katalog/SidebarFilter";
+import ListKatalog from "../components/Katalog/ListKatalog";
 import { Link } from "react-router-dom";
-// import LeftSide from "../components/LeftSide";
+import {ProductProvider} from '../context/ProductContext'
 
 function Katalog() {
   return (
-    <>
+    <ProductProvider>
       <div className="w-full flex justify-center p-[80px] bg-cyan">
         <h1 className="text-xl">
           <Link to={`/`}>Home</Link> / Katalog
@@ -16,15 +16,13 @@ function Katalog() {
         <div className="flex flex-col md:flex-row">
           <div className="w-full md:w-1/4 px-5">
             <SidebarFilter />
-            {/* <LeftSide/> */}
           </div>
           <div className="w-full md:w-3/4 px-5">
             <ListKatalog />
           </div>
         </div>
       </div>
-
-    </>
+      </ProductProvider>
   );
 }
 

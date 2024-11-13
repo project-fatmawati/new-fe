@@ -1,30 +1,43 @@
-import React, { useState } from "react";
-// import Logo from "../assets/Logo-nav.png";
+import { useState} from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "../assets/clothes-icon.png";
-
-// function Navbar() {
-//   return (
-//     <nav className="bg-white px-4 py-3 shadow-md font-sans relative">
-//       <div className="container mx-auto flex items-center justify-between">
-//         <img src={Logo} alt="BarterStyle Logo" className="h-12" />
-//       </div>
-//     </nav>
-//   );
-// }
+import { useAuth } from "../context/AuthContext";  // Pastikan path ini benar
 
 function Login() {
+  const {login } = useAuth(); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+ // Ambil fungsi login dari AuthContext
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (email && password) {
+  //     login(email.split("@")[0]);  // Login menggunakan username (email tanpa domain)
+  //     navigate("/");  // Arahkan ke halaman utama setelah login
+  //   } else {
+  //     alert("Email dan password harus diisi!");
+  //   }
+  // };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email && password) {
-      // Logic for login can be added here
-      alert("Login berhasil");
-    } else {
-      alert("Email dan password harus diisi!");
+
+    // Validasi sederhana
+    if (!email || !password) {
+      alert('Email dan password harus diisi!');
+      return;
     }
-  };
+
+    try {
+
+      await login(email, password);
+      navigate('/');
+    } catch (error) {
+      console.error(error);
+      alert('Email atau password salah. Silahkan coba lagi.');
+    } 
+  }
 
   return (
     <div className="min-h-screen bg-gray-100">

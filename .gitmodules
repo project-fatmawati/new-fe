@@ -1,0 +1,3 @@
+[submodule "new-frontend"]
+    path = new-frontend
+    url = https://github.com/project-fatmawati/new-frontend.git

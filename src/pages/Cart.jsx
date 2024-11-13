@@ -1,21 +1,25 @@
-import React from "react";
-import CartItem from "../components/CartItem";
+import CartItem from "../components/Katalog/CartItem";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+// import { useOrder } from '../context/OrderContext'
 
 const Cart = () => {
-  const cartItems = [
-    {
-      id: 1,
-      name: "Baju Olahraga Gym Senam Zumba Yoga Wanita Kaos",
-      price: 0,
-      quantity: 1,
-      color: "Grey",
-      size: "M",
-    },
-    // Add other cart items here
-  ];
+  // const cartItems = [
+  //   {
+  //     id: 1,
+  //     name: "Baju Olahraga Gym Senam Zumba Yoga Wanita Kaos",
+  //     price: 0,
+  //     quantity: 1,
+  //     color: "Grey",
+  //     size: "M",
+  //   },
+
+    
+  //   // Add other cart items here
+  // ];
+  const { order } = useOrder();
+  if (!order.user) {
+    return <p className="text-center h-screen ">Please login to view your orders.</p>;
+  }
 
   return (
     <>
@@ -23,6 +27,7 @@ const Cart = () => {
         <h1 className="text-xl">
           <Link to={`/`}>Home</Link> / Keranjang Belanja
         </h1>
+        <h2>Welcome {order.user.name}</h2>
       </div>
 
       <div className="container mx-auto py-[100px]">
@@ -36,23 +41,17 @@ const Cart = () => {
             <thead className=" bg-mustard text-xl">
               <tr>
                 <th className="py-2 px-4 text-left">Produk</th>
-                <th className="py-2 px-4 text-right">Harga</th>
                 <th className="py-2 px-4 text-center ">Qty</th>
-                <th className="py-2 px-4 text-right ">Subtotal</th>
               </tr>
             </thead>
             <tbody>
-              {cartItems.map((item) => (
-                <CartItem key={item.id} item={item} />
-              ))}
+            {order.products.map((product) => (
+            <CartItem key={product.id} product={product} />
+          ))}
             </tbody>
           </table>
           <div className="mt-8 sm:mt-0 w-full sm:w-1/2 border p-5">
             <h2 className="text-xl font-bold mb-4">Total Keranjang</h2>
-            <div className="flex justify-between mb-2 text-lg">
-              <span className="font-bold">Subtotal</span>
-              <span>Rp. 0</span>
-            </div>
             <div className="flex justify-between mb-2 text-lg">
               <span className="font-bold">Transaction Fee</span>
               <span>Rp. 5.000</span>

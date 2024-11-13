@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
-import bcaLogo from "../assets/bcaLogo.png";
+import  { useState } from "react";
+import bcaLogo from '../assets/bcaLogo.png'
 import briLogo from "../assets/briLogo.png";
 import bniLogo from "../assets/bniLogo.png";
 import mandiriLogo from "../assets/mandiriLogo.png";
@@ -8,7 +8,7 @@ import danaLogo from "../assets/danaLogo.png";
 import shopeepay from "../assets/shopeepay.png";
 import visaLogo from "../assets/visaLogo.png";
 import masterCard from "../assets/masterCard.png";
-import PopupPayment from "../components/PopupPayment";
+import PopupPayment from "../components/Transaksi/PopupPayment";
 
 function Payment() {
   // const [paymentMethod, setPaymentMethod] = useState('');
@@ -131,7 +131,7 @@ function Payment() {
                 <div className="flex flex-col justify-center gap-4">
                   <div className="flex py-3">
                     <input type="checkbox" className="mr-2" />
-                    <label for="terms">
+                    <label>
                       I have read and agree to the website terms and conditions
                     </label>
                   </div>

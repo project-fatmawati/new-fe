@@ -1,5 +1,5 @@
-import React from 'react'
-import ListEvent from '../components/ListEvent'
+
+import ListEvent from '../components/Dashboard/ListEvent'
 
 function Event() {
   return (
