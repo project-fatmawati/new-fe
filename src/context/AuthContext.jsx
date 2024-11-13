@@ -1,5 +1,5 @@
 import React, {  createContext, useContext, useState,useEffect } from 'react';
-// import axios from 'axios'
+import axios from 'axios'
 
 const AuthContext = createContext();
 
@@ -14,27 +14,13 @@ export function AuthProvider({ children }) {
   // const [username, setUsername] = useState('');
 
 
-  fetch('https://barterstyle-backend.onrender.com/api', {
-    mode: 'no-cors'
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      console.log(response.status); // Access the status code
-      console.log(response.statusText); // Access the status text
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    })
+
 
   const regis = async (formData) => {
+    console.log(formData)
     try {
-      const response = await fetch('https://barterstyle-backend.onrender.com/api/auth/regis', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+      const response = await axios.post('http://localhost:3000/api/auth/regis', 
+        {fullName : "Rikakamila", username: "rika", email : "rikakamila@gmail.com"});
   
       if (!response.ok) {
         throw new Error(await response.text());
