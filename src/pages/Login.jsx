@@ -1,44 +1,29 @@
-import { useState} from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Icon from "../assets/clothes-icon.png";
-import { useAuth } from "../context/AuthContext";  // Pastikan path ini benar
+import { useAuth } from "../context/AuthContext"; 
+import axios from "axios";
 
 function Login() {
-  const {login } = useAuth(); 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
- // Ambil fungsi login dari AuthContext
+  const { login } = useAuth();
   const navigate = useNavigate();
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (email && password) {
-  //     login(email.split("@")[0]);  // Login menggunakan username (email tanpa domain)
-  //     navigate("/");  // Arahkan ke halaman utama setelah login
-  //   } else {
-  //     alert("Email dan password harus diisi!");
-  //   }
-  // };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validasi sederhana
-    if (!email || !password) {
-      alert('Email dan password harus diisi!');
-      return;
-    }
-
     try {
-
-      await login(email, password);
-      navigate('/');
+      const userData = { email, password };
+      console.log(userData)
+      await login(userData); // Call login function from AuthContext
+      navigate('/'); // Redirect to homepage after successful login
     } catch (error) {
-      console.error(error);
-      alert('Email atau password salah. Silahkan coba lagi.');
-    } 
-  }
-
+      console.error('Login failed:', error);
+      // Display error message to user
+    }
+  };
   return (
     <div className="min-h-screen bg-gray-100">
       <div className="flex justify-center items-center h-[80vh]">

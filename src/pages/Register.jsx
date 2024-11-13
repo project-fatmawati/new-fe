@@ -1,77 +1,48 @@
 import {  useState, useContext } from "react";
 import {useAuth} from "../context/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 // import Logo from '../assets/Logo-nav.png';
 import Icon from "../assets/clothes-icon.png"; 
-// import axios from "axios";
+import axios from "axios";
 
 function Register() {
   const { regis } = useAuth();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-  const [fullName, setFullName] = useState("");
-  const [userName, setUserName] = useState("");
+
+  const [fullname, setFullname] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [handphone, setHandphone] = useState("");
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
   const [kuota, setKuota] = useState("");
-  
-  // const [confirmPassword, setConfirmPassword] = useState('');
-  // const [errorMessage, setErrorMessage] = useState('');
-  // const navigate = useNavigate();
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   // Simpan data pengguna ke localStorage
-  //   let users = JSON.parse(localStorage.getItem('users')) || {};
-  //   if (users[email]) {
-  //     setErrorMessage('Email sudah terdaftar!');
-  //     return;
-  //   }
-
-  //   users[email] = { userName, handphone, address, password };
-  //   localStorage.setItem('users', JSON.stringify(users));
-
-  //   alert('Pendaftaran berhasil!');
-  //   navigate("/login"); // Redirect ke halaman login
-  // };
-
+  const [error, setError] = useState(null);
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); 
-    setError(null);
+
+    const userData = {
+      fullname,
+      username,
+      email,
+      handphone,
+      address,
+      password,
+      kuota,
+    };
 
     try {
-      const formData = new FormData();
-      formData.append("full_name", fullName);
-      formData.append("username", userName);
-      formData.append("email", email);
-      formData.append("handphone",  handphone);
-      formData.append("address", address);
-      formData.append("password", password);
-      formData.append("kuota", kuota); 
-
-
-      console.log(formData);
-      await regis(formData);
-
-      if (response.status !== 200) {
-        throw new Error('Gagal mendaftar. Silahkan coba lagi.');
-      }
-  
-      alert('Pendaftaran berhasil!');
-      navigate('/login');
+      await regis(userData);
+      alert("Pendaftaran berhasil! Silahkan login menggunakan akun Anda.");
+      navigate("/Login"); // Redirect to login page
     } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
+      console.error("Registration failed:", error);
+      setError("Pendaftaran gagal. Silahkan coba lagi.");
     }
-    }
+  };
   
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
@@ -102,8 +73,8 @@ function Register() {
                 id="full-name"
                 placeholder="Nama Lengkap"
                 required
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
+                value={fullname}
+                onChange={(e) => setFullname(e.target.value)}
                 className="w-full px-4 py-2 border border-gray rounded-md focus:outline-none focus:ring-2 focus:ring-teal"
               />
             </div>
@@ -120,8 +91,8 @@ function Register() {
                 id="user-name"
                 placeholder="Username"
                 required
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 className="w-full px-4 py-2 border border-gray rounded-md focus:outline-none focus:ring-2 focus:ring-teal"
               />
             </div>
@@ -213,20 +184,6 @@ function Register() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal"
               />
             </div>
-
-            {/* <div>
-              <label htmlFor="confirm-password" className="block text-sm font-medium text-gray-700">Konfirmasi Password *</label>
-              <input
-                type="password"
-                id="confirm-password"
-                placeholder="Konfirmasi Password"
-                required
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal"
-              />
-              {errorMessage && <p className="text-red text-sm mt-2">{errorMessage}</p>}
-            </div> */}
 
             <div className="flex items-center space-x-2">
               <input

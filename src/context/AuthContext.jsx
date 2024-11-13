@@ -1,109 +1,92 @@
-import React, {  createContext, useContext, useState,useEffect } from 'react';
-import axios from 'axios'
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import axios from 'axios';
+// import { useNavigate } from 'react-router-dom';
 
-const AuthContext = createContext();
+const AuthContext = createContext({
+  user: null,
+  setUser: () => {},
+  login: () => {},
+});
 
 export function AuthProvider({ children }) {
-
   const [user, setUser] = useState(null);
+  // const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); 
 
 
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [username, setUsername] = useState('');
-
-
-
-
-  const regis = async (formData) => {
-    console.log(formData)
+  const regis = async (userData) => {
+    console.log(userData);
+  
     try {
-      const response = await axios.post('http://localhost:3000/api/auth/regis', 
-        {fullName : "Rikakamila", username: "rika", email : "rikakamila@gmail.com"});
-  
-      if (!response.ok) {
-        throw new Error(await response.text());
+      const response = await axios.post('http://localhost:3000/api/auth/regis', userData);
+
+      if (response.status === 200 && response.data) {
+        console.log('Registration successful:', response.data);
+        localStorage.setItem('user', JSON.stringify(response.data.user)); 
+        setUser(response.data.user); 
+      } else {
+        console.error('Registration failed:', response.statusText);
+        throw new Error('Registration failed. Please try again.');
       }
-  
-      const data = await response.json();
-      setUser(data);
-      // Simpan token atau data pengguna lain ke local storage jika diperlukan
     } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
+      console.error('Registration failed:', error);
+      throw new Error('Registration failed. Please try again.');
     }
   };
 
 
-  const login = async (formData) => {
+  const login = async (userData) => {
     try {
-      const response = await fetch('https://barterstyle-backend.onrender.com/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-  
-      if (!response.ok) {
-        throw new Error(await   
-   response.text());
-      }
-  
-      const data = await response.json();
-      setUser(setUser(data.user));
-      localStorage.setItem('authToken', data.token);
+      const response = await axios.post('http://localhost:3000/api/auth/login', userData);
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+      setUser(                {
+        email: response.data.user.email,
+        password: response.data.user.password});
+      return response.data;
     } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
+      console.error('Login failed:', error);
+      throw error;
     }
   };
 
-      // Fungsi untuk logout
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem('authToken');
-  };
 
   useEffect(() => {
-    // Periksa apakah ada token di local storage saat aplikasi dimulai
-    const token = localStorage.getItem('authToken');
-    if (token) {
+    const storedToken = localStorage.getItem('authToken');   
+
+    if (storedToken) {
+      // Periksa validitas token
+      axios.get('/http://localhost:3000/api/auth/login', {
+        headers: {
+          Authorization: `Bearer ${storedToken}`
+        }
+      })
+      .then(response => {
+        setUser(response.data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error checking token:', error);
+        localStorage.removeItem('authToken');
+        setLoading(false);
+      });
     } else {
       setLoading(false);
     }
-  }, []);
+  }, []); 
 
+  const logout = () => {
+    localStorage.removeItem('authtoken');
+    setUser(null);
+    
+  };
 
-
-  // const login = (user) => {
-  //   setIsLoggedIn(true);
-  //   setUsername(user);
-  // };
-
-  // const logout = () => {
-  //   setIsLoggedIn(false);
-  //   setUsername('');
-  // };
-
-
-
-  return (
-    <AuthContext.Provider value={{  regis, login, logout, setLoading , setError}}>
+  return ( // Curly brace added here
+    <AuthContext.Provider value={{ user, regis, login, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );
-
-  // return (
-  //   <AuthContext.Provider value={{ isLoggedIn, username, login, logout }}>
-  //     {children}
-  //   </AuthContext.Provider>
-  // );
-
-
 }
-
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
